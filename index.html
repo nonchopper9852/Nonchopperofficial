@@ -242,7 +242,7 @@
       color: var(--text-main);
       letter-spacing: 0.05em;
     }
-    /* SERIES WORKS（1シリーズ統合コンテナ） */
+    /* SERIES WORKS（シリーズ統合コンテナ） */
     .series-container {
       background: var(--bg-card);
       border: 1px solid var(--border-glow);
@@ -277,7 +277,6 @@
       color: var(--text-muted);
       font-weight: 300;
     }
-    /* 6枚を連作として並べるグリッド（PC: 3列×2段 / スマホ: 2列×3段） */
     .series-sequence {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -330,12 +329,12 @@
       font-size: 0.72rem;
       color: var(--accent-cyan);
       letter-spacing: 0.1em;
+      flex-shrink: 0;
     }
     .seq-name {
-      font-family: 'Cinzel', serif;
-      font-size: 0.92rem;
+      font-size: 0.86rem;
       color: var(--text-main);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
     }
     /* LINKS スタイル */
     .links-grid {
@@ -441,7 +440,7 @@
   <section id="works">
     <h2>SERIES WORKS<span>シリーズ作品</span></h2>
 
-    <!-- SERIES 01（6連作を1シリーズとして統合） -->
+    <!-- SERIES 01（6連作） -->
     <div class="series-container">
       <div class="series-header">
         <div class="series-label">SERIES 01 — 6 WORKS SEQUENCE</div>
@@ -497,6 +496,59 @@
           <div class="seq-caption">
             <span class="seq-num">06</span>
             <span class="seq-name">adult?</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERIES 02（月を閉じ込めてシリーズ 5連作） -->
+    <div class="series-container">
+      <div class="series-header">
+        <div class="series-label">SERIES 02 — 5 WORKS SEQUENCE</div>
+        <h3 class="series-title">月を閉じ込めて / 格子の月シリーズ</h3>
+        <p class="series-concept">
+          閉じ込めたものと守られていたものの境界線を問いかけ、孤独と自己防衛の心理を5つの連作で描き出すシリーズ。
+        </p>
+      </div>
+
+      <div class="series-sequence">
+        <div class="seq-item">
+          <div class="seq-thumb"><img src="tuki1.png" alt="月を閉じ込めて"></div>
+          <div class="seq-caption">
+            <span class="seq-num">01</span>
+            <span class="seq-name">月を閉じ込めて</span>
+          </div>
+        </div>
+
+        <div class="seq-item">
+          <div class="seq-thumb"><img src="tuki2.png" alt="格子の月"></div>
+          <div class="seq-caption">
+            <span class="seq-num">02</span>
+            <span class="seq-name">格子の月</span>
+          </div>
+        </div>
+
+        <div class="seq-item">
+          <div class="seq-thumb"><img src="tuki3.png" alt="内に居たのはどっち？"></div>
+          <div class="seq-caption">
+            <span class="seq-num">03</span>
+            <span class="seq-name">内に居たのはどっち？</span>
+          </div>
+        </div>
+
+        <div class="seq-item">
+          <div class="seq-thumb"><img src="tuki4.png" alt="何を閉じ込めたのだろう？"></div>
+          <div class="seq-caption">
+            <span class="seq-num">04</span>
+            <span class="seq-name">何を閉じ込めたのだろう？</span>
+          </div>
+        </div>
+
+        <div class="seq-item">
+          <div class="seq-thumb"><img src="tuki5.png" alt="防衛の檻"></div>
+          <div class="seq-caption">
+            <span class="seq-num">05</span>
+            <span class="seq-name">防衛の檻</span>
           </div>
         </div>
       </div>
