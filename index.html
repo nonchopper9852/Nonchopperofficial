@@ -589,16 +589,31 @@
       border: 1px solid rgba(157, 123, 255, 0.4);
       color: #ddd6fe;
     }
-    .sel-title {
-      font-size: 1rem;
+    .sel-exhibition-name {
+      font-size: 0.98rem;
       font-weight: 500;
       color: var(--text-main);
       line-height: 1.45;
+    }
+    .sel-work-title {
+      font-size: 0.9rem;
+      color: var(--accent-cyan);
+      font-weight: 400;
+      line-height: 1.45;
+      margin-top: 0.15rem;
+    }
+    .sel-work-en {
+      display: block;
+      font-size: 0.78rem;
+      color: #c7d2fe;
+      font-weight: 300;
+      margin-top: 0.1rem;
     }
     .sel-detail {
       font-size: 0.8rem;
       color: var(--text-muted);
       font-weight: 300;
+      margin-top: 0.2rem;
     }
 
     /* EXHIBITION（展示履歴・スケジュール）スタイル */
@@ -889,21 +904,29 @@
       <div class="sel-grid">
         <article class="sel-card">
           <div class="sel-thumb">
-            <img src="nyusen_toram1000.png" alt="一般社団法人TORAM1000展">
+            <img src="nyusen_toram1000.png" alt="枯山水 / Karesansui">
           </div>
           <div class="sel-body">
             <span class="sel-tag">入選</span>
-            <h3 class="sel-title">一般社団法人TORAM1000展</h3>
+            <h3 class="sel-exhibition-name">一般社団法人TORAM1000展</h3>
+            <div class="sel-work-title">
+              『枯山水』
+              <span class="sel-work-en">Karesansui</span>
+            </div>
             <div class="sel-detail">2026.10 選出</div>
           </div>
         </article>
         <article class="sel-card">
           <div class="sel-thumb">
-            <img src="yokogao.png" alt="第18回躍動する現代作家展">
+            <img src="yokogao.png" alt="横顔ー涙はいつかー / Profile - Tears Will Someday...">
           </div>
           <div class="sel-body">
             <span class="sel-tag">入選</span>
-            <h3 class="sel-title">第18回躍動する現代作家展</h3>
+            <h3 class="sel-exhibition-name">第18回躍動する現代作家展</h3>
+            <div class="sel-work-title">
+              『横顔ー涙はいつかー』
+              <span class="sel-work-en">Profile - Tears Will Someday...</span>
+            </div>
             <div class="sel-detail">国立新美術館（2026.11.26 – 12.06）</div>
           </div>
         </article>
