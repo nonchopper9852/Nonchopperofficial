@@ -40,8 +40,8 @@
     }
     .logo {
       font-family: 'Cinzel', serif;
-      font-size: 1.25rem;
-      letter-spacing: 0.16em;
+      font-size: 1.2rem;
+      letter-spacing: 0.14em;
       color: var(--text-main);
       text-decoration: none;
       white-space: nowrap;
@@ -49,22 +49,22 @@
     nav {
       display: flex;
       align-items: center;
-      gap: 1.4rem;
+      gap: 1.2rem;
     }
     nav a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
       transition: color 0.3s;
       white-space: nowrap;
     }
     nav a:hover { color: var(--accent-cyan); }
-    @media (max-width: 600px) {
-      header { padding: 0.9rem 4%; }
-      .logo { font-size: 1.05rem; letter-spacing: 0.12em; }
-      nav { gap: 0.85rem; }
-      nav a { font-size: 0.72rem; letter-spacing: 0.06em; }
+    @media (max-width: 640px) {
+      header { padding: 0.9rem 3.5%; }
+      .logo { font-size: 0.98rem; letter-spacing: 0.1em; }
+      nav { gap: 0.65rem; }
+      nav a { font-size: 0.66rem; letter-spacing: 0.03em; }
     }
     /* トップ画面（ファーストビュー） */
     .hero {
@@ -145,7 +145,7 @@
     section {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 6rem 1.5rem;
+      padding: 5.5rem 1.5rem;
     }
     h2 {
       font-family: 'Cinzel', serif;
@@ -242,7 +242,7 @@
       color: var(--text-main);
       letter-spacing: 0.05em;
     }
-    /* SERIES WORKS（シリーズ統合コンテナ） */
+    /* 統合シリーズコンテナ */
     .series-container {
       background: var(--bg-card);
       border: 1px solid var(--border-glow);
@@ -256,7 +256,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
-      margin-bottom: 1.8rem;
+      margin-bottom: 2rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       padding-bottom: 1.4rem;
     }
@@ -276,6 +276,18 @@
       font-size: 0.9rem;
       color: var(--text-muted);
       font-weight: 300;
+    }
+    .chapter-block + .chapter-block {
+      margin-top: 2.4rem;
+      padding-top: 2rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+    }
+    .chapter-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--accent-cyan);
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
     }
     .series-sequence {
       display: grid;
@@ -336,10 +348,73 @@
       color: var(--text-main);
       letter-spacing: 0.04em;
     }
+    /* EXHIBITION（展示履歴・スケジュール）スタイル */
+    .exhibition-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: 16px;
+      padding: 2.4rem 2rem;
+      margin-top: 2rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    }
+    .ex-group-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      color: var(--accent-cyan);
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+    .ex-group-title.past {
+      margin-top: 2.2rem;
+      padding-top: 1.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+    }
+    .ex-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .ex-item {
+      display: grid;
+      grid-template-columns: 165px 1fr;
+      gap: 0.5rem 1.2rem;
+      padding: 1rem 1.2rem;
+      background: rgba(5, 7, 14, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 10px;
+      align-items: baseline;
+    }
+    .ex-item.featured {
+      border-color: rgba(92, 225, 230, 0.45);
+      background: rgba(92, 225, 230, 0.06);
+    }
+    .ex-date {
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      letter-spacing: 0.04em;
+      font-weight: 400;
+    }
+    .ex-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+    .ex-venue {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-top: 0.15rem;
+    }
+    @media (max-width: 640px) {
+      .exhibition-box { padding: 1.8rem 1.2rem; }
+      .ex-item { grid-template-columns: 1fr; padding: 0.9rem 1rem; }
+    }
     /* LINKS スタイル */
     .links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.2rem;
       margin-top: 2rem;
     }
@@ -378,6 +453,7 @@
     <nav>
       <a href="#concept">CONCEPT</a>
       <a href="#works">WORKS</a>
+      <a href="#exhibition">EXHIBITION</a>
       <a href="#links">LINKS</a>
     </nav>
   </header>
@@ -388,7 +464,7 @@
     <p>写真の断片に光と抽象の線を重ね、現実と幻想の狭間を描く。<br>人間の感情や二面性、そして「結び付き」をテーマに表現を紡ぐ。</p>
     <div class="hero-actions">
       <a href="#works" class="btn-primary">VIEW WORKS</a>
-      <a href="#links" class="btn-outline">SHOP &amp; SNS</a>
+      <a href="#exhibition" class="btn-outline">EXHIBITION</a>
     </div>
   </div>
 
@@ -438,117 +514,294 @@
   </section>
 
   <section id="works">
-    <h2>SERIES WORKS<span>シリーズ作品</span></h2>
+    <h2>SERIES WORKS<span>統合シリーズ作品</span></h2>
 
-    <!-- SERIES 01（6連作） -->
+    <!-- 1つのシリーズ枠に全連作を統合 -->
     <div class="series-container">
       <div class="series-header">
-        <div class="series-label">SERIES 01 — 6 WORKS SEQUENCE</div>
-        <h3 class="series-title">innocence? → adult?（感情の変遷シリーズ）</h3>
+        <div class="series-label">UNIFIED SERIES — REALITY &amp; CONNECTION</div>
+        <h3 class="series-title">感情の変遷と「結び付き」の連作シリーズ</h3>
         <p class="series-concept">
-          無垢さ（innocence?）から始まり、経験・罪悪感・葛藤（resist?）を経て「大人（adult?）」へと至る心の移ろいを、左から右へと流れる6作品の連続ストーリーで表現した連作シリーズ。
+          無垢さから始まる心の揺らぎ、閉ざされた月と自己防衛、都市の喧騒の中の孤独、そして「ひとりじゃない」と光へ向かう感情の軌跡を、ひとつの連続したシリーズとしてまとめています。
         </p>
       </div>
 
-      <div class="series-sequence">
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="innocence.png" alt="innocence?"></div>
-          <div class="seq-caption">
-            <span class="seq-num">01</span>
-            <span class="seq-name">innocence?</span>
+      <!-- Part 1: innocence? → adult? -->
+      <div class="chapter-block">
+        <div class="chapter-title">PART 01 / innocence? → adult?</div>
+        <div class="series-sequence">
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="innocence.png" alt="innocence?"></div>
+            <div class="seq-caption">
+              <span class="seq-num">01</span>
+              <span class="seq-name">innocence?</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="beinnocent.png" alt="be innocent?"></div>
+            <div class="seq-caption">
+              <span class="seq-num">02</span>
+              <span class="seq-name">be innocent?</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="experience.png" alt="experience?"></div>
+            <div class="seq-caption">
+              <span class="seq-num">03</span>
+              <span class="seq-name">experience?</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="guilty.png" alt="guilty?"></div>
+            <div class="seq-caption">
+              <span class="seq-num">04</span>
+              <span class="seq-name">guilty?</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="resist.png" alt="resist?"></div>
+            <div class="seq-caption">
+              <span class="seq-num">05</span>
+              <span class="seq-name">resist?</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="adult.png" alt="adult?"></div>
+            <div class="seq-caption">
+              <span class="seq-num">06</span>
+              <span class="seq-name">adult?</span>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="beinnocent.png" alt="be innocent?"></div>
-          <div class="seq-caption">
-            <span class="seq-num">02</span>
-            <span class="seq-name">be innocent?</span>
+      <!-- Part 2: 月を閉じ込めて -->
+      <div class="chapter-block">
+        <div class="chapter-title">PART 02 / 月を閉じ込めて</div>
+        <div class="series-sequence">
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="tuki1.png" alt="月を閉じ込めて"></div>
+            <div class="seq-caption">
+              <span class="seq-num">01</span>
+              <span class="seq-name">月を閉じ込めて</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="tuki2.png" alt="格子の月"></div>
+            <div class="seq-caption">
+              <span class="seq-num">02</span>
+              <span class="seq-name">格子の月</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="tuki3.png" alt="内に居たのはどっち？"></div>
+            <div class="seq-caption">
+              <span class="seq-num">03</span>
+              <span class="seq-name">内に居たのはどっち？</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="tuki4.png" alt="何を閉じ込めたのだろう？"></div>
+            <div class="seq-caption">
+              <span class="seq-num">04</span>
+              <span class="seq-name">何を閉じ込めたのだろう？</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="tuki5.png" alt="防衛の檻"></div>
+            <div class="seq-caption">
+              <span class="seq-num">05</span>
+              <span class="seq-name">防衛の檻</span>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="experience.png" alt="experience?"></div>
-          <div class="seq-caption">
-            <span class="seq-num">03</span>
-            <span class="seq-name">experience?</span>
+      <!-- Part 3: 沢山の人が居るのにひとりぼっち。 -->
+      <div class="chapter-block">
+        <div class="chapter-title">PART 03 / 沢山の人が居るのにひとりぼっち。</div>
+        <div class="series-sequence">
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="htori1.png" alt="沢山の人が居るのにひとりぼっち。 01"></div>
+            <div class="seq-caption">
+              <span class="seq-num">01</span>
+              <span class="seq-name">Scene 01</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="hitori2.png" alt="沢山の人が居るのにひとりぼっち。 02"></div>
+            <div class="seq-caption">
+              <span class="seq-num">02</span>
+              <span class="seq-name">Scene 02</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="hitori3.png" alt="沢山の人が居るのにひとりぼっち。 03"></div>
+            <div class="seq-caption">
+              <span class="seq-num">03</span>
+              <span class="seq-name">Scene 03</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="hitori4.png" alt="沢山の人が居るのにひとりぼっち。 04"></div>
+            <div class="seq-caption">
+              <span class="seq-num">04</span>
+              <span class="seq-name">Scene 04</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="hitori5.png" alt="沢山の人が居るのにひとりぼっち。 05"></div>
+            <div class="seq-caption">
+              <span class="seq-num">05</span>
+              <span class="seq-name">Scene 05</span>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="guilty.png" alt="guilty?"></div>
-          <div class="seq-caption">
-            <span class="seq-num">04</span>
-            <span class="seq-name">guilty?</span>
+      <!-- Part 4: 虚無〜楽しいはず... -->
+      <div class="chapter-block">
+        <div class="chapter-title">PART 04 / 虚無 — 孤独 — ひとりぼっち。 — ひとりじゃない？ — 楽しいはず...</div>
+        <div class="series-sequence">
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="alone1.png" alt="虚無"></div>
+            <div class="seq-caption">
+              <span class="seq-num">01</span>
+              <span class="seq-name">虚無</span>
+            </div>
           </div>
-        </div>
-
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="resist.png" alt="resist?"></div>
-          <div class="seq-caption">
-            <span class="seq-num">05</span>
-            <span class="seq-name">resist?</span>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="alone2.png" alt="孤独"></div>
+            <div class="seq-caption">
+              <span class="seq-num">02</span>
+              <span class="seq-name">孤独</span>
+            </div>
           </div>
-        </div>
-
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="adult.png" alt="adult?"></div>
-          <div class="seq-caption">
-            <span class="seq-num">06</span>
-            <span class="seq-name">adult?</span>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="alone3.png" alt="ひとりぼっち。"></div>
+            <div class="seq-caption">
+              <span class="seq-num">03</span>
+              <span class="seq-name">ひとりぼっち。</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="alone4.png" alt="ひとりじゃない？"></div>
+            <div class="seq-caption">
+              <span class="seq-num">04</span>
+              <span class="seq-name">ひとりじゃない？</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="alone5.png" alt="楽しいはず..."></div>
+            <div class="seq-caption">
+              <span class="seq-num">05</span>
+              <span class="seq-name">楽しいはず...</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- SERIES 02（月を閉じ込めてシリーズ 5連作） -->
-    <div class="series-container">
-      <div class="series-header">
-        <div class="series-label">SERIES 02 — 5 WORKS SEQUENCE</div>
-        <h3 class="series-title">月を閉じ込めて / 格子の月シリーズ</h3>
-        <p class="series-concept">
-          閉じ込めたものと守られていたものの境界線を問いかけ、孤独と自己防衛の心理を5つの連作で描き出すシリーズ。
-        </p>
+  <!-- EXHIBITION（展示履歴・スケジュール） -->
+  <section id="exhibition">
+    <h2>EXHIBITION<span>展示履歴・出展予定</span></h2>
+    <div class="exhibition-box">
+      <div class="ex-group-title">UPCOMING &amp; CURRENT / 今後の予定・開催中</div>
+      <div class="ex-list">
+        <div class="ex-item featured">
+          <div class="ex-date">2026.11.26 – 12.06</div>
+          <div>
+            <div class="ex-title">第18回 躍動する現代作家展</div>
+            <div class="ex-venue">国立新美術館（東京・六本木）</div>
+          </div>
+        </div>
+        <div class="ex-item">
+          <div class="ex-date">2026.12</div>
+          <div>
+            <div class="ex-title">KIZUNA 2026 グループ展</div>
+            <div class="ex-venue">GALLERY AND LINKS 81（東京・銀座）</div>
+          </div>
+        </div>
+        <div class="ex-item">
+          <div class="ex-date">2027.01</div>
+          <div>
+            <div class="ex-title">intersection 1010#24 / モノクローム展2027</div>
+            <div class="ex-venue">栄多目的ギャラリー1010（名古屋） / Gallery Kunitachi（東京・国立）</div>
+          </div>
+        </div>
+        <div class="ex-item">
+          <div class="ex-date">2027.02</div>
+          <div>
+            <div class="ex-title">みんなのアート展 in 神楽坂</div>
+            <div class="ex-venue">Kagurazaka Art Space K（東京・新宿）</div>
+          </div>
+        </div>
+        <div class="ex-item">
+          <div class="ex-date">2027</div>
+          <div>
+            <div class="ex-title">Independent Tokyo 2027 / ダ・ヴィンチとの共創（Clos Lucé）ほか</div>
+            <div class="ex-venue">Tagboat主催アートフェア / フランス・クロ・リュセ城 ほか</div>
+          </div>
+        </div>
       </div>
 
-      <div class="series-sequence">
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="tuki1.png" alt="月を閉じ込めて"></div>
-          <div class="seq-caption">
-            <span class="seq-num">01</span>
-            <span class="seq-name">月を閉じ込めて</span>
+      <div class="ex-group-title past">PAST EXHIBITIONS / 過去の展示履歴</div>
+      <div class="ex-list">
+        <div class="ex-item">
+          <div class="ex-date">2026.11</div>
+          <div>
+            <div class="ex-title">The Square OSAKA vol.2</div>
+            <div class="ex-venue">Seaside Studio CASO（大阪）</div>
           </div>
         </div>
-
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="tuki2.png" alt="格子の月"></div>
-          <div class="seq-caption">
-            <span class="seq-num">02</span>
-            <span class="seq-name">格子の月</span>
+        <div class="ex-item">
+          <div class="ex-date">2026.10.29 – 11.03</div>
+          <div>
+            <div class="ex-title">猫濱展 vol.2（出展作『家族猫』）</div>
+            <div class="ex-venue">万国橋ギャラリー（横浜）</div>
           </div>
         </div>
-
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="tuki3.png" alt="内に居たのはどっち？"></div>
-          <div class="seq-caption">
-            <span class="seq-num">03</span>
-            <span class="seq-name">内に居たのはどっち？</span>
+        <div class="ex-item">
+          <div class="ex-date">2026.10.24 – 10.25</div>
+          <div>
+            <div class="ex-title">第二回 写真展 COLORS</div>
+            <div class="ex-venue">横浜赤レンガ倉庫 1号館 2Fスペース（横浜）</div>
           </div>
         </div>
-
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="tuki4.png" alt="何を閉じ込めたのだろう？"></div>
-          <div class="seq-caption">
-            <span class="seq-num">04</span>
-            <span class="seq-name">何を閉じ込めたのだろう？</span>
+        <div class="ex-item">
+          <div class="ex-date">2026.10</div>
+          <div>
+            <div class="ex-title">Blue展#3</div>
+            <div class="ex-venue">410Gallery / Spatial Art TORAM（福岡）</div>
           </div>
         </div>
-
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="tuki5.png" alt="防衛の檻"></div>
-          <div class="seq-caption">
-            <span class="seq-num">05</span>
-            <span class="seq-name">防衛の檻</span>
+        <div class="ex-item">
+          <div class="ex-date">2026.10.10 – 10.11</div>
+          <div>
+            <div class="ex-title">The Square vol.5.5</div>
+            <div class="ex-venue">東京芸術劇場 ギャラリー1（東京・池袋）</div>
+          </div>
+        </div>
+        <div class="ex-item">
+          <div class="ex-date">2026.09.18 – 11.17</div>
+          <div>
+            <div class="ex-title">MEITETSU ART GALLERY「TRIPアートコレクション」</div>
+            <div class="ex-venue">名鉄瀬戸線（栄町駅・大曽根駅・大森・金城学院前駅・尾張旭駅）</div>
+          </div>
+        </div>
+        <div class="ex-item">
+          <div class="ex-date">2026.08.22 – 08.23</div>
+          <div>
+            <div class="ex-title">横浜 デジ絵 vol.2</div>
+            <div class="ex-venue">みなとみらいギャラリーABC（横浜）</div>
+          </div>
+        </div>
+        <div class="ex-item">
+          <div class="ex-date">2026.07.29 – 09.18</div>
+          <div>
+            <div class="ex-title">MEITETSU ART GALLERY「Dreamアートコレクション」</div>
+            <div class="ex-venue">名鉄瀬戸線（栄町駅・大曽根駅・大森・金城学院前駅・尾張旭駅）</div>
           </div>
         </div>
       </div>
@@ -565,10 +818,6 @@
       <a href="https://note.com/" target="_blank" rel="noopener" class="link-card">
         <strong>note</strong>
         <span>制作秘話・エッセイ・連載小説</span>
-      </a>
-      <a href="https://nonchopper-portfolio.my.canva.site/nonchopper" target="_blank" rel="noopener" class="link-card">
-        <strong>Archive Portfolio</strong>
-        <span>過去の展示履歴・アーカイブ</span>
       </a>
       <a href="https://thebase.com/" target="_blank" rel="noopener" class="link-card">
         <strong>Official Shop (BASE)</strong>
