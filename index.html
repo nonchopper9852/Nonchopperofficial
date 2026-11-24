@@ -23,7 +23,7 @@
       background-color: var(--bg-deep);
       color: var(--text-main);
       font-family: 'Noto Sans JP', sans-serif;
-      line-height: 1.8;
+      line-height: 1.85;
       overflow-x: hidden;
     }
     header {
@@ -33,7 +33,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(5, 7, 14, 0.75);
+      background: rgba(5, 7, 14, 0.78);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255,255,255,0.08);
       z-index: 100;
@@ -66,7 +66,7 @@
       nav { gap: 0.85rem; }
       nav a { font-size: 0.72rem; letter-spacing: 0.06em; }
     }
-    /* トップ画面（ファーストビュー）の背景画像設定 */
+    /* トップ画面（ファーストビュー） */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -77,10 +77,10 @@
       text-align: center;
       padding: 6rem 1.5rem 4rem;
       background-image:
-        linear-gradient(to bottom, rgba(5, 7, 14, 0.45) 0%, rgba(5, 7, 14, 0.65) 70%, #05070e 100%),
+        linear-gradient(to bottom, rgba(5, 7, 14, 0.35) 0%, rgba(5, 7, 14, 0.55) 65%, #05070e 100%),
         url('yokogao.png');
       background-size: cover;
-      background-position: center center;
+      background-position: center 25%;
       background-repeat: no-repeat;
     }
     .hero-sub {
@@ -89,7 +89,7 @@
       color: var(--accent-cyan);
       margin-bottom: 1rem;
       text-transform: uppercase;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
     }
     .hero h1 {
       font-family: 'Cinzel', serif;
@@ -97,15 +97,15 @@
       letter-spacing: 0.2em;
       font-weight: 400;
       margin-bottom: 1.2rem;
-      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.85), 0 0 30px rgba(92, 225, 230, 0.35);
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9), 0 0 30px rgba(92, 225, 230, 0.35);
     }
     .hero p {
       max-width: 600px;
-      color: #e2e8f0;
+      color: #f1f5f9;
       font-size: 0.95rem;
       font-weight: 300;
       margin-bottom: 2.2rem;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
     }
     .hero-actions {
       display: flex;
@@ -123,7 +123,7 @@
       backdrop-filter: blur(6px);
     }
     .btn-primary {
-      background: rgba(92, 225, 230, 0.22);
+      background: rgba(92, 225, 230, 0.25);
       border: 1px solid var(--accent-cyan);
       color: var(--text-main);
       box-shadow: 0 0 20px rgba(92, 225, 230, 0.25);
@@ -134,13 +134,13 @@
       font-weight: 500;
     }
     .btn-outline {
-      background: rgba(5, 7, 14, 0.45);
-      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(5, 7, 14, 0.5);
+      border: 1px solid rgba(255,255,255,0.4);
       color: var(--text-main);
     }
     .btn-outline:hover {
       border-color: var(--text-main);
-      background: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.15);
     }
     section {
       max-width: 1080px;
@@ -152,7 +152,7 @@
       font-size: 1.8rem;
       letter-spacing: 0.2em;
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
       font-weight: 400;
     }
     h2 span {
@@ -163,54 +163,186 @@
       letter-spacing: 0.25em;
       margin-top: 0.4rem;
     }
+    /* CONCEPT & PROFILE スタイル */
     .concept-box {
       background: var(--bg-card);
       border: 1px solid var(--border-glow);
-      border-radius: 12px;
-      padding: 2.5rem;
+      border-radius: 14px;
+      padding: 2.8rem 2.2rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+      margin-top: 2rem;
+    }
+    .concept-lead {
       text-align: center;
-      backdrop-filter: blur(8px);
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      margin-bottom: 1.6rem;
+      line-height: 1.9;
     }
-    .works-grid {
+    .concept-lead em {
+      font-style: normal;
+      color: var(--accent-cyan);
+    }
+    .concept-body {
+      max-width: 740px;
+      margin: 0 auto 2.5rem;
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      font-weight: 300;
+      text-align: left;
+    }
+    .concept-body p + p {
+      margin-top: 1.1rem;
+    }
+    .profile-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(92, 225, 230, 0.35), transparent);
+      margin: 2.2rem 0;
+    }
+    .profile-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      text-align: left;
     }
-    .work-card {
+    .profile-block h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      color: var(--accent-cyan);
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+    .profile-name {
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.5rem;
+    }
+    .profile-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(92, 225, 230, 0.08);
+      border: 1px solid rgba(92, 225, 230, 0.25);
+      color: var(--text-main);
+      letter-spacing: 0.05em;
+    }
+    /* SERIES WORKS（1シリーズ統合コンテナ） */
+    .series-container {
       background: var(--bg-card);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
+      border: 1px solid var(--border-glow);
+      border-radius: 16px;
+      padding: 2.4rem 2rem;
+      margin-top: 2.5rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    }
+    .series-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 1.4rem;
+    }
+    .series-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      color: var(--accent-cyan);
+    }
+    .series-title {
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--text-main);
+    }
+    .series-concept {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+    /* 6枚を連作として並べるグリッド（PC: 3列×2段 / スマホ: 2列×3段） */
+    .series-sequence {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+    @media (max-width: 768px) {
+      .series-sequence {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.9rem;
+      }
+      .series-container {
+        padding: 1.8rem 1.2rem;
+      }
+    }
+    .seq-item {
+      background: rgba(5, 7, 14, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
       overflow: hidden;
       transition: transform 0.3s, border-color 0.3s;
     }
-    .work-card:hover {
-      transform: translateY(-5px);
+    .seq-item:hover {
+      transform: translateY(-4px);
       border-color: var(--accent-cyan);
     }
-    .work-art {
-      height: 220px;
+    .seq-thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #090d16;
+    }
+    .seq-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .seq-item:hover .seq-thumb img {
+      transform: scale(1.05);
+    }
+    .seq-caption {
+      padding: 0.75rem 0.9rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
+      gap: 0.5rem;
     }
-    .art-1 { background: radial-gradient(circle at 30% 30%, #1e3a8a, #090d16 70%); }
-    .art-2 { background: radial-gradient(circle at 70% 40%, #4c1d95, #090d16 70%); }
-    .art-3 { background: radial-gradient(circle at 50% 60%, #0e7490, #090d16 70%); }
-    .moon-circle {
-      width: 90px; height: 90px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.6);
-      box-shadow: 0 0 25px rgba(92,225,230,0.4);
+    .seq-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      color: var(--accent-cyan);
+      letter-spacing: 0.1em;
     }
-    .work-info { padding: 1.4rem; }
-    .work-info h3 { font-size: 1.1rem; font-weight: 500; margin-bottom: 0.4rem; }
-    .work-info p { font-size: 0.85rem; color: var(--text-muted); }
+    .seq-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      letter-spacing: 0.06em;
+    }
+    /* LINKS スタイル */
     .links-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.2rem;
+      margin-top: 2rem;
     }
     .link-card {
       display: block;
@@ -235,6 +367,10 @@
       color: var(--text-muted);
       border-top: 1px solid rgba(255,255,255,0.06);
     }
+    @media (max-width: 600px) {
+      .concept-box { padding: 2rem 1.3rem; }
+      .concept-lead { font-size: 1.02rem; }
+    }
   </style>
 </head>
 <body>
@@ -258,34 +394,110 @@
   </div>
 
   <section id="concept">
-    <h2>CONCEPT<span>作品世界について</span></h2>
+    <h2>CONCEPT &amp; PROFILE<span>作品世界とアーティストについて</span></h2>
     <div class="concept-box">
-      <p>日常の風景や写真の断片に、デジタルの光とラインをレイヤーとして重ねることで、<br>目に見える現実の奥に潜む感情や孤独、つながりの輪郭を可視化しています。</p>
+      <p class="concept-lead">
+        現実の断片に、光と抽象の線を重ねる。<br>
+        目に見えない感情と<em>「結び付き」</em>の輪郭を描く。
+      </p>
+      <div class="concept-body">
+        <p>
+          私たちが日々目にしている風景や記憶の断片に、デジタルの光・色彩・抽象的なラインをレイヤーとして重ね合わせることで、「現実」と「幻想（虚像）」の境界線を表現しています。
+        </p>
+        <p>
+          人との「つながり」や心の二面性、賑やかな街の中でふと訪れる孤独感、そしてその先にある人と人・感情と世界の「結び付き」をテーマに、静止画のデジタルアートから連続性のあるショートムービー、物語執筆まで領域を横断した表現を追求しています。
+        </p>
+      </div>
+
+      <div class="profile-divider"></div>
+
+      <div class="profile-grid">
+        <div class="profile-block">
+          <h3>ARTIST PROFILE</h3>
+          <div class="profile-name">Nonchopper</div>
+          <p class="profile-text">
+            独学でデザイン・デジタルアートを学び、写真とデジタル表現を融合させた作品制作を行うアーティスト・デザイナー。国内外のギャラリー展示やアートフェアへの出展をはじめ、ジークレー作品の制作、ショート動画、noteでの小説・エッセイ執筆など多角的に活動。
+          </p>
+        </div>
+        <div class="profile-block">
+          <h3>EXPRESSION &amp; TOOLS</h3>
+          <p class="profile-text">
+            写真の質感に光と線を幾重にも重ねる独自のレイヤー表現を中心に、視覚と物語が交差する作品を制作。
+          </p>
+          <div class="tag-list">
+            <span class="tag">Digital Art</span>
+            <span class="tag">Mixed Media</span>
+            <span class="tag">Photoshop</span>
+            <span class="tag">Illustrator</span>
+            <span class="tag">Figma</span>
+            <span class="tag">Short Movie</span>
+            <span class="tag">Storytelling</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="works">
-    <h2>SELECTED WORKS<span>代表シリーズ</span></h2>
-    <div class="works-grid">
-      <div class="work-card">
-        <div class="work-art art-1"><div class="moon-circle"></div></div>
-        <div class="work-info">
-          <h3>格子の月 / 内に居たのはどっち？</h3>
-          <p>閉じ込めたものと守られていたものの境界を問うシリーズ。</p>
-        </div>
+    <h2>SERIES WORKS<span>シリーズ作品</span></h2>
+
+    <!-- SERIES 01（6連作を1シリーズとして統合） -->
+    <div class="series-container">
+      <div class="series-header">
+        <div class="series-label">SERIES 01 — 6 WORKS SEQUENCE</div>
+        <h3 class="series-title">innocence? → adult?（感情の変遷シリーズ）</h3>
+        <p class="series-concept">
+          無垢さ（innocence?）から始まり、経験・罪悪感・葛藤（resist?）を経て「大人（adult?）」へと至る心の移ろいを、左から右へと流れる6作品の連続ストーリーで表現した連作シリーズ。
+        </p>
       </div>
-      <div class="work-card">
-        <div class="work-art art-2"><div class="moon-circle" style="border-radius:12px; transform:rotate(45deg);"></div></div>
-        <div class="work-info">
-          <h3>横顔 -二面性- / 残響</h3>
-          <p>光と影のコントラストで心の揺らぎを捉えたデジタルアート。</p>
+
+      <div class="series-sequence">
+        <div class="seq-item">
+          <div class="seq-thumb"><img src="innocence.png" alt="innocence?"></div>
+          <div class="seq-caption">
+            <span class="seq-num">01</span>
+            <span class="seq-name">innocence?</span>
+          </div>
         </div>
-      </div>
-      <div class="work-card">
-        <div class="work-art art-3"><div class="moon-circle" style="border-style:dashed;"></div></div>
-        <div class="work-info">
-          <h3>結び付き / 空論の世界</h3>
-          <p>ネットネイティブ時代のつながりと孤独を描く最新コレクション。</p>
+
+        <div class="seq-item">
+          <div class="seq-thumb"><img src="beinnocent.png" alt="be innocent?"></div>
+          <div class="seq-caption">
+            <span class="seq-num">02</span>
+            <span class="seq-name">be innocent?</span>
+          </div>
+        </div>
+
+        <div class="seq-item">
+          <div class="seq-thumb"><img src="experience.png" alt="experience?"></div>
+          <div class="seq-caption">
+            <span class="seq-num">03</span>
+            <span class="seq-name">experience?</span>
+          </div>
+        </div>
+
+        <div class="seq-item">
+          <div class="seq-thumb"><img src="guilty.png" alt="guilty?"></div>
+          <div class="seq-caption">
+            <span class="seq-num">04</span>
+            <span class="seq-name">guilty?</span>
+          </div>
+        </div>
+
+        <div class="seq-item">
+          <div class="seq-thumb"><img src="resist.png" alt="resist?"></div>
+          <div class="seq-caption">
+            <span class="seq-num">05</span>
+            <span class="seq-name">resist?</span>
+          </div>
+        </div>
+
+        <div class="seq-item">
+          <div class="seq-thumb"><img src="adult.png" alt="adult?"></div>
+          <div class="seq-caption">
+            <span class="seq-num">06</span>
+            <span class="seq-name">adult?</span>
+          </div>
         </div>
       </div>
     </div>
