@@ -255,3 +255,463 @@
     .series-header {
       display: flex;
       flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 1.4rem;
+    }
+    .series-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      color: var(--accent-cyan);
+    }
+    .series-title {
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--text-main);
+    }
+    .series-concept {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+    .chapter-block + .chapter-block {
+      margin-top: 2.4rem;
+      padding-top: 2rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+    }
+    .chapter-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--accent-cyan);
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+    .series-sequence {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+    @media (max-width: 768px) {
+      .series-sequence {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.9rem;
+      }
+      .series-container {
+        padding: 1.8rem 1.2rem;
+      }
+    }
+    .seq-item {
+      background: rgba(5, 7, 14, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .seq-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-cyan);
+    }
+    .seq-thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #090d16;
+    }
+    .seq-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .seq-item:hover .seq-thumb img {
+      transform: scale(1.05);
+    }
+    .seq-caption {
+      padding: 0.75rem 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .seq-caption.with-sub {
+      align-items: flex-start;
+    }
+    .seq-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      color: var(--accent-cyan);
+      letter-spacing: 0.1em;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+    .seq-text-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .seq-name {
+      font-size: 0.86rem;
+      color: var(--text-main);
+      letter-spacing: 0.04em;
+      line-height: 1.35;
+    }
+    .seq-sub {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.4;
+    }
+    /* EXHIBITION（展示履歴・スケジュール）スタイル */
+    .exhibition-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: 16px;
+      padding: 2.4rem 2rem;
+      margin-top: 2rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    }
+    .ex-group-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      color: var(--accent-cyan);
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+    .ex-group-title.past {
+      margin-top: 2.2rem;
+      padding-top: 1.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+    }
+    .ex-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .ex-item {
+      display: grid;
+      grid-template-columns: 165px 1fr;
+      gap: 0.5rem 1.2rem;
+      padding: 1rem 1.2rem;
+      background: rgba(5, 7, 14, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 10px;
+      align-items: baseline;
+    }
+    .ex-item.featured {
+      border-color: rgba(92, 225, 230, 0.45);
+      background: rgba(92, 225, 230, 0.06);
+    }
+    .ex-date {
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      letter-spacing: 0.04em;
+      font-weight: 400;
+    }
+    .ex-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+    .ex-work {
+      font-size: 0.82rem;
+      color: #c7d2fe;
+      font-weight: 400;
+      margin-top: 0.25rem;
+    }
+    .ex-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 0.08rem 0.55rem;
+      margin-right: 0.45rem;
+      border-radius: 999px;
+      background: rgba(92, 225, 230, 0.12);
+      border: 1px solid rgba(92, 225, 230, 0.35);
+      color: var(--accent-cyan);
+      vertical-align: baseline;
+    }
+    .ex-venue {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-top: 0.2rem;
+    }
+    @media (max-width: 640px) {
+      .exhibition-box { padding: 1.8rem 1.2rem; }
+      .ex-item { grid-template-columns: 1fr; padding: 0.9rem 1rem; }
+    }
+    /* LINKS スタイル */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+    .link-card {
+      display: block;
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1.4rem;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+      transition: all 0.3s;
+    }
+    .link-card:hover {
+      border-color: var(--accent-cyan);
+      background: rgba(92, 225, 230, 0.08);
+    }
+    .link-card strong { display: block; font-size: 1rem; margin-bottom: 0.2rem; }
+    .link-card span { font-size: 0.8rem; color: var(--text-muted); }
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    @media (max-width: 600px) {
+      .concept-box { padding: 2rem 1.3rem; }
+      .concept-lead { font-size: 1.02rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#" class="logo">NONCHOPPER</a>
+    <nav>
+      <a href="#concept">CONCEPT</a>
+      <a href="#works">WORKS</a>
+      <a href="#exhibition">EXHIBITION</a>
+      <a href="#links">LINKS</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="hero-sub">Digital Artist &amp; Designer</div>
+    <h1>NONCHOPPER</h1>
+    <p>写真の断片に光と抽象の線を重ね、現実と幻想の狭間を描く。<br>人間の感情や二面性、そして「結び付き」をテーマに表現を紡ぐ。</p>
+    <div class="hero-actions">
+      <a href="#works" class="btn-primary">VIEW WORKS</a>
+      <a href="#exhibition" class="btn-outline">EXHIBITION</a>
+    </div>
+  </div>
+
+  <section id="concept">
+    <h2>CONCEPT &amp; PROFILE<span>作品世界とアーティストについて</span></h2>
+    <div class="concept-box">
+      <p class="concept-lead">
+        現実の断片に、光と抽象の線を重ねる。<br>
+        目に見えない感情と<em>「結び付き」</em>の輪郭を描く。
+      </p>
+      <div class="concept-body">
+        <p>
+          私たちが日々目にしている風景や記憶の断片に、デジタルの光・色彩・抽象的なラインをレイヤーとして重ね合わせることで、「現実」と「幻想（虚像）」の境界線を表現しています。
+        </p>
+        <p>
+          人との「つながり」や心の二面性、賑やかな街の中でふと訪れる孤独感、そしてその先にある人と人・感情と世界の「結び付き」をテーマに、静止画のデジタルアートから連続性のあるショートムービー、物語執筆まで領域を横断した表現を追求しています。
+        </p>
+      </div>
+
+      <div class="profile-divider"></div>
+
+      <div class="profile-grid">
+        <div class="profile-block">
+          <h3>ARTIST PROFILE</h3>
+          <div class="profile-name">Nonchopper</div>
+          <p class="profile-text">
+            独学でデザイン・デジタルアートを学び、写真とデジタル表現を融合させた作品制作を行うアーティスト・デザイナー。国内外のギャラリー展示やアートフェアへの出展をはじめ、ジークレー作品の制作、ショート動画、noteでの小説・エッセイ執筆など多角的に活動。
+          </p>
+        </div>
+        <div class="profile-block">
+          <h3>EXPRESSION &amp; TOOLS</h3>
+          <p class="profile-text">
+            写真の質感に光と線を幾重にも重ねる独自のレイヤー表現を中心に、視覚と物語が交差する作品を制作。
+          </p>
+          <div class="tag-list">
+            <span class="tag">Digital Art</span>
+            <span class="tag">Mixed Media</span>
+            <span class="tag">Photoshop</span>
+            <span class="tag">Illustrator</span>
+            <span class="tag">Figma</span>
+            <span class="tag">Short Movie</span>
+            <span class="tag">Storytelling</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="works">
+    <h2>SERIES WORKS<span>統合シリーズ作品</span></h2>
+
+    <!-- 1つのシリーズ枠に全連作を統合 -->
+    <div class="series-container">
+      <div class="series-header">
+        <div class="series-label">UNIFIED SERIES — REALITY &amp; CONNECTION</div>
+        <h3 class="series-title">感情の変遷と「結び付き」の連作シリーズ</h3>
+        <p class="series-concept">
+          無垢さから始まる心の揺らぎ、閉ざされた月と自己防衛、都市の喧騒の中で揺れる孤独と「ひとりじゃない」という想いへの軌跡を、ひとつの連続したシリーズとしてまとめています。
+        </p>
+      </div>
+
+      <!-- Part 1: innocence? → adult? -->
+      <div class="chapter-block">
+        <div class="chapter-title">PART 01 / innocence? → adult?</div>
+        <div class="series-sequence">
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="innocence.png" alt="innocence? 私は無垢なの？"></div>
+            <div class="seq-caption with-sub">
+              <span class="seq-num">01</span>
+              <div class="seq-text-group">
+                <span class="seq-name">innocence?</span>
+                <span class="seq-sub">私は無垢なの？</span>
+              </div>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="beinnocent.png" alt="be innocent? 無垢でいろというの？"></div>
+            <div class="seq-caption with-sub">
+              <span class="seq-num">02</span>
+              <div class="seq-text-group">
+                <span class="seq-name">be innocent?</span>
+                <span class="seq-sub">無垢でいろというの？</span>
+              </div>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="experience.png" alt="experience? これは経験？ それとも傷？"></div>
+            <div class="seq-caption with-sub">
+              <span class="seq-num">03</span>
+              <div class="seq-text-group">
+                <span class="seq-name">experience?</span>
+                <span class="seq-sub">これは経験？ それとも傷？</span>
+              </div>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="guilty.png" alt="guilty? 私だけが悪いの？"></div>
+            <div class="seq-caption with-sub">
+              <span class="seq-num">04</span>
+              <div class="seq-text-group">
+                <span class="seq-name">guilty?</span>
+                <span class="seq-sub">私だけが悪いの？</span>
+              </div>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="pain.png" alt="pain? この痛みは何？"></div>
+            <div class="seq-caption with-sub">
+              <span class="seq-num">05</span>
+              <div class="seq-text-group">
+                <span class="seq-name">pain?</span>
+                <span class="seq-sub">この痛みは何？</span>
+              </div>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="adult.png" alt="adult? これで大人になったの？"></div>
+            <div class="seq-caption with-sub">
+              <span class="seq-num">06</span>
+              <div class="seq-text-group">
+                <span class="seq-name">adult?</span>
+                <span class="seq-sub">これで大人になったの？</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 2: 月を閉じ込めて -->
+      <div class="chapter-block">
+        <div class="chapter-title">PART 02 / 月を閉じ込めて</div>
+        <div class="series-sequence">
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="tuki1.png" alt="月を閉じ込めて"></div>
+            <div class="seq-caption">
+              <span class="seq-num">01</span>
+              <span class="seq-name">月を閉じ込めて</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="tuki2.png" alt="格子の月"></div>
+            <div class="seq-caption">
+              <span class="seq-num">02</span>
+              <span class="seq-name">格子の月</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="tuki3.png" alt="内に居たのはどっち？"></div>
+            <div class="seq-caption">
+              <span class="seq-num">03</span>
+              <span class="seq-name">内に居たのはどっち？</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="tuki4.png" alt="何を閉じ込めたのだろう？"></div>
+            <div class="seq-caption">
+              <span class="seq-num">04</span>
+              <span class="seq-name">何を閉じ込めたのだろう？</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="tuki5.png" alt="防衛の檻"></div>
+            <div class="seq-caption">
+              <span class="seq-num">05</span>
+              <span class="seq-name">防衛の檻</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 3: 虚無 — 孤独 — ひとりぼっち。 — ひとりじゃない？ — 楽しいはず... -->
+      <div class="chapter-block">
+        <div class="chapter-title">PART 03 / 虚無 — 孤独 — ひとりぼっち。 — ひとりじゃない？ — 楽しいはず...</div>
+        <div class="series-sequence">
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="htori1.jpg" alt="虚無"></div>
+            <div class="seq-caption">
+              <span class="seq-num">01</span>
+              <span class="seq-name">虚無</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="hitori2.jpg" alt="孤独"></div>
+            <div class="seq-caption">
+              <span class="seq-num">02</span>
+              <span class="seq-name">孤独</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="hitori3.jpg" alt="ひとりぼっち。"></div>
+            <div class="seq-caption">
+              <span class="seq-num">03</span>
+              <span class="seq-name">ひとりぼっち。</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="hitori4.jpg" alt="ひとりじゃない？"></div>
+            <div class="seq-caption">
+              <span class="seq-num">04</span>
+              <span class="seq-name">ひとりじゃない？</span>
+            </div>
+          </div>
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="hitori5.jpg" alt="楽しいはず..."></div>
+            <div class="seq-caption">
+              <span class="seq-num">05</span>
+              <span class="seq-name">楽しいはず...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXHIBITION（展示履歴・スケジュール） -->
+  <section id="exhibition">
+    <h2>EXHIBITION
