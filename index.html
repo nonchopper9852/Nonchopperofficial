@@ -66,7 +66,7 @@
       nav { gap: 0.85rem; }
       nav a { font-size: 0.72rem; letter-spacing: 0.06em; }
     }
-    /* トップ画面（ファーストビュー）：yokogao.png を背景に反映 */
+    /* トップ画面（ファーストビュー）の背景画像設定 */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -77,10 +77,10 @@
       text-align: center;
       padding: 6rem 1.5rem 4rem;
       background-image:
-        linear-gradient(to bottom, rgba(5, 7, 14, 0.35) 0%, rgba(5, 7, 14, 0.55) 65%, #05070e 100%),
-        url('yokogao.png');
+        linear-gradient(to bottom, rgba(5, 7, 14, 0.45) 0%, rgba(5, 7, 14, 0.65) 70%, #05070e 100%),
+        url('hero.jpg');
       background-size: cover;
-      background-position: center 25%;
+      background-position: center center;
       background-repeat: no-repeat;
     }
     .hero-sub {
@@ -89,7 +89,7 @@
       color: var(--accent-cyan);
       margin-bottom: 1rem;
       text-transform: uppercase;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
     }
     .hero h1 {
       font-family: 'Cinzel', serif;
@@ -97,15 +97,15 @@
       letter-spacing: 0.2em;
       font-weight: 400;
       margin-bottom: 1.2rem;
-      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9), 0 0 30px rgba(92, 225, 230, 0.35);
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.85), 0 0 30px rgba(92, 225, 230, 0.35);
     }
     .hero p {
       max-width: 600px;
-      color: #f1f5f9;
+      color: #e2e8f0;
       font-size: 0.95rem;
       font-weight: 300;
       margin-bottom: 2.2rem;
-      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
     }
     .hero-actions {
       display: flex;
@@ -123,7 +123,7 @@
       backdrop-filter: blur(6px);
     }
     .btn-primary {
-      background: rgba(92, 225, 230, 0.25);
+      background: rgba(92, 225, 230, 0.22);
       border: 1px solid var(--accent-cyan);
       color: var(--text-main);
       box-shadow: 0 0 20px rgba(92, 225, 230, 0.25);
@@ -134,13 +134,13 @@
       font-weight: 500;
     }
     .btn-outline {
-      background: rgba(5, 7, 14, 0.5);
-      border: 1px solid rgba(255,255,255,0.4);
+      background: rgba(5, 7, 14, 0.45);
+      border: 1px solid rgba(255,255,255,0.35);
       color: var(--text-main);
     }
     .btn-outline:hover {
       border-color: var(--text-main);
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.12);
     }
     section {
       max-width: 1080px;
