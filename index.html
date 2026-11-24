@@ -26,6 +26,9 @@
       line-height: 1.85;
       overflow-x: hidden;
     }
+    body.modal-open {
+      overflow: hidden;
+    }
     header {
       position: fixed;
       top: 0; width: 100%;
@@ -242,40 +245,213 @@
       color: var(--text-main);
       letter-spacing: 0.05em;
     }
-    /* 統合シリーズコンテナ */
-    .series-container {
-      background: var(--bg-card);
-      border: 1px solid var(--border-glow);
-      border-radius: 16px;
-      padding: 2.4rem 2rem;
-      margin-top: 2.5rem;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
-    }
-    .series-header {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 1.4rem;
-    }
-    .series-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.22em;
-      color: var(--accent-cyan);
-    }
-    .series-title {
-      font-size: 1.35rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--text-main);
-    }
-    .series-concept {
-      font-size: 0.9rem;
+
+    /* SERIES WORKS（入口：シリーズ単位のカバーカード一覧） */
+    .works-intro {
+      text-align: center;
+      font-size: 0.86rem;
       color: var(--text-muted);
       font-weight: 300;
+      margin-bottom: 2.4rem;
+    }
+    .series-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+    }
+    @media (max-width: 860px) {
+      .series-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+      }
+    }
+    @media (max-width: 560px) {
+      .series-grid {
+        grid-template-columns: 1fr;
+        gap: 1.3rem;
+      }
+    }
+    .series-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.4);
+    }
+    .series-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 16px 42px rgba(92, 225, 230, 0.16);
+    }
+    .series-cover {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #090d16;
+    }
+    .series-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .series-card:hover .series-cover img {
+      transform: scale(1.06);
+    }
+    .series-count-badge {
+      position: absolute;
+      top: 0.85rem;
+      right: 0.85rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(5, 7, 14, 0.82);
+      border: 1px solid rgba(92, 225, 230, 0.45);
+      color: var(--accent-cyan);
+      backdrop-filter: blur(6px);
+    }
+    .series-card-body {
+      padding: 1.35rem 1.3rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 0.45rem;
+    }
+    .series-card-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--accent-cyan);
+    }
+    .series-card-title {
+      font-size: 1.08rem;
+      font-weight: 500;
+      color: var(--text-main);
+      letter-spacing: 0.04em;
+      line-height: 1.45;
+    }
+    .series-card-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.65;
+      margin-top: 0.2rem;
+    }
+    .series-card-cta {
+      margin-top: auto;
+      padding-top: 0.9rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .series-card:hover .series-card-cta {
+      text-decoration: underline;
+    }
+
+    /* モーダル（クリック展開後のシリーズ詳細ビュー） */
+    .series-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(3, 5, 11, 0.88);
+      backdrop-filter: blur(14px);
+      display: none;
+      overflow-y: auto;
+      padding: 2.5rem 1.2rem 4rem;
+    }
+    .series-modal.active {
+      display: block;
+      animation: modalFadeIn 0.25s ease;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .modal-panel {
+      max-width: 1020px;
+      margin: 0 auto;
+      background: #0a1020;
+      border: 1px solid rgba(92, 225, 230, 0.35);
+      border-radius: 16px;
+      padding: 2.2rem 2rem 2.6rem;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.75);
+      position: relative;
+    }
+    @media (max-width: 640px) {
+      .modal-panel {
+        padding: 1.6rem 1.1rem 2rem;
+      }
+    }
+    .modal-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1.3rem;
+      margin-bottom: 1.8rem;
+    }
+    .modal-series-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.74rem;
+      letter-spacing: 0.22em;
+      color: var(--accent-cyan);
+      margin-bottom: 0.3rem;
+    }
+    .modal-series-title {
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--text-main);
+      letter-spacing: 0.05em;
+    }
+    .modal-series-concept {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-top: 0.45rem;
+    }
+    .modal-close-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-main);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.25rem;
+      line-height: 1;
+      cursor: pointer;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s;
+    }
+    .modal-close-btn:hover {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      background: rgba(92, 225, 230, 0.12);
+    }
+    .modal-flow-hint {
+      font-size: 0.76rem;
+      color: var(--accent-cyan);
+      letter-spacing: 0.12em;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     .series-sequence {
       display: grid;
@@ -287,20 +463,12 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 0.9rem;
       }
-      .series-container {
-        padding: 1.8rem 1.2rem;
-      }
     }
     .seq-item {
-      background: rgba(5, 7, 14, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(5, 7, 14, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.09);
       border-radius: 10px;
       overflow: hidden;
-      transition: transform 0.3s, border-color 0.3s;
-    }
-    .seq-item:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-cyan);
     }
     .seq-thumb {
       width: 100%;
@@ -313,19 +481,12 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.4s ease;
-    }
-    .seq-item:hover .seq-thumb img {
-      transform: scale(1.05);
     }
     .seq-caption {
       padding: 0.75rem 0.9rem;
       display: flex;
-      align-items: center;
-      gap: 0.55rem;
-    }
-    .seq-caption.with-sub {
       align-items: flex-start;
+      gap: 0.55rem;
     }
     .seq-num {
       font-family: 'Cinzel', serif;
@@ -352,6 +513,26 @@
       font-weight: 300;
       line-height: 1.4;
     }
+    .modal-footer-close {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .modal-footer-close button {
+      background: rgba(92, 225, 230, 0.14);
+      border: 1px solid var(--accent-cyan);
+      color: var(--text-main);
+      padding: 0.65rem 2rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .modal-footer-close button:hover {
+      background: var(--accent-cyan);
+      color: #05070e;
+    }
+
     /* EXHIBITION（展示履歴・スケジュール）スタイル */
     .exhibition-box {
       background: var(--bg-card);
@@ -564,183 +745,73 @@
   </section>
 
   <section id="works">
-    <h2>SERIES WORKS<span>統合連作シリーズ</span></h2>
+    <h2>SERIES WORKS<span>連作シリーズ一覧</span></h2>
+    <p class="works-intro">各シリーズをクリックすると、左から右へと連なる全作品の物語が開きます。</p>
 
-    <div class="series-container">
-      <div class="series-header">
-        <div class="series-label">UNIFIED SERIES — REALITY &amp; CONNECTION</div>
-        <h3 class="series-title">感情の変遷と「結び付き」の連作シリーズ</h3>
-        <p class="series-concept">
-          無垢さから始まる心の揺らぎ、閉ざされた月と自己防衛、都市の喧騒の中で揺れる孤独と「ひとりじゃない」という想いへの軌跡を、ひとつの連続したシリーズとしてまとめています。
-        </p>
-      </div>
+    <!-- 入口：各シリーズを1件（カバー1枚＋タイトル＋コンセプト一文）として表示 -->
+    <div class="series-grid">
+      <!-- Series 01 -->
+      <article class="series-card" onclick="openSeries('series-1')">
+        <div class="series-cover">
+          <img src="innocence.png" alt="innocence? → adult?">
+          <span class="series-count-badge">6 WORKS</span>
+        </div>
+        <div class="series-card-body">
+          <div class="series-card-num">SERIES 01</div>
+          <h3 class="series-card-title">innocence? → adult?</h3>
+          <p class="series-card-desc">無垢さへの問いかけから傷と痛みを経て「大人になること」へと至る心の揺らぎの記録。</p>
+          <div class="series-card-cta">READ SERIES &rarr;</div>
+        </div>
+      </article>
 
-      <div class="series-sequence">
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="innocence.png" alt="innocence? 私は無垢なの？"></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">01</span>
-            <div class="seq-text-group">
-              <span class="seq-name">innocence?</span>
-              <span class="seq-sub">私は無垢なの？</span>
-            </div>
-          </div>
+      <!-- Series 02 -->
+      <article class="series-card" onclick="openSeries('series-2')">
+        <div class="series-cover">
+          <img src="tuki1.png" alt="月を閉じ込めて Confining the Moon">
+          <span class="series-count-badge">5 WORKS</span>
         </div>
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="beinnocent.png" alt="be innocent? 無垢でいろというの？"></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">02</span>
-            <div class="seq-text-group">
-              <span class="seq-name">be innocent?</span>
-              <span class="seq-sub">無垢でいろというの？</span>
-            </div>
-          </div>
+        <div class="series-card-body">
+          <div class="series-card-num">SERIES 02</div>
+          <h3 class="series-card-title">月を閉じ込めて</h3>
+          <p class="series-card-desc">格子の向こうに閉じ込めたのは月か、それとも自分自身か——自己防衛の檻を見つめる連作。</p>
+          <div class="series-card-cta">READ SERIES &rarr;</div>
         </div>
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="experience.png" alt="experience? これは経験？ それとも傷？"></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">03</span>
-            <div class="seq-text-group">
-              <span class="seq-name">experience?</span>
-              <span class="seq-sub">これは経験？ それとも傷？</span>
-            </div>
-          </div>
-        </div>
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="guilty.png" alt="guilty? 私だけが悪いの？"></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">04</span>
-            <div class="seq-text-group">
-              <span class="seq-name">guilty?</span>
-              <span class="seq-sub">私だけが悪いの？</span>
-            </div>
-          </div>
-        </div>
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="resist.png" alt="pain? この痛みは何？"></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">05</span>
-            <div class="seq-text-group">
-              <span class="seq-name">pain?</span>
-              <span class="seq-sub">この痛みは何？</span>
-            </div>
-          </div>
-        </div>
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="adult.png" alt="adult? これで大人になったの？"></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">06</span>
-            <div class="seq-text-group">
-              <span class="seq-name">adult?</span>
-              <span class="seq-sub">これで大人になったの？</span>
-            </div>
-          </div>
-        </div>
+      </article>
 
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="tuki1.png" alt="月を閉じ込めて Confining the Moon"></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">07</span>
-            <div class="seq-text-group">
-              <span class="seq-name">月を閉じ込めて</span>
-              <span class="seq-sub">Confining the Moon</span>
-            </div>
-          </div>
+      <!-- Series 03 -->
+      <article class="series-card" onclick="openSeries('series-3')">
+        <div class="series-cover">
+          <img src="htori1.png" alt="虚無 — 孤独 — ひとりぼっち。">
+          <span class="series-count-badge">5 WORKS</span>
         </div>
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="tuki2.png" alt="格子の月 The Caged Moon"></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">08</span>
-            <div class="seq-text-group">
-              <span class="seq-name">格子の月</span>
-              <span class="seq-sub">The Caged Moon</span>
-            </div>
-          </div>
+        <div class="series-card-body">
+          <div class="series-card-num">SERIES 03</div>
+          <h3 class="series-card-title">虚無 — 孤独 — ひとりぼっち。</h3>
+          <p class="series-card-desc">賑やかな街の中で抱える虚無と孤独、そして「ひとりじゃない」という微かな希望への軌跡。</p>
+          <div class="series-card-cta">READ SERIES &rarr;</div>
         </div>
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="tuki3.png" alt="内に居たのはどっち？ Which One Was Inside?"></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">09</span>
-            <div class="seq-text-group">
-              <span class="seq-name">内に居たのはどっち？</span>
-              <span class="seq-sub">Which One Was Inside?</span>
-            </div>
-          </div>
-        </div>
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="tuki4.png" alt="何を閉じ込めたのだろう？ What Did I Lock Away?"></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">10</span>
-            <div class="seq-text-group">
-              <span class="seq-name">何を閉じ込めたのだろう？</span>
-              <span class="seq-sub">What Did I Lock Away?</span>
-            </div>
-          </div>
-        </div>
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="tuki5.png" alt="防衛の檻 Cage of Self-Defense"></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">11</span>
-            <div class="seq-text-group">
-              <span class="seq-name">防衛の檻</span>
-              <span class="seq-sub">Cage of Self-Defense</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="htori1.png" alt="虚無 Emptiness"></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">12</span>
-            <div class="seq-text-group">
-              <span class="seq-name">虚無</span>
-              <span class="seq-sub">Emptiness</span>
-            </div>
-          </div>
-        </div>
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="hitori2.png" alt="孤独 Solitude"></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">13</span>
-            <div class="seq-text-group">
-              <span class="seq-name">孤独</span>
-              <span class="seq-sub">Solitude</span>
-            </div>
-          </div>
-        </div>
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="hitori3.png" alt="ひとりぼっち。 All Alone."></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">14</span>
-            <div class="seq-text-group">
-              <span class="seq-name">ひとりぼっち。</span>
-              <span class="seq-sub">All Alone.</span>
-            </div>
-          </div>
-        </div>
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="hitori4.png" alt="ひとりじゃない？ Not Alone?"></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">15</span>
-            <div class="seq-text-group">
-              <span class="seq-name">ひとりじゃない？</span>
-              <span class="seq-sub">Not Alone?</span>
-            </div>
-          </div>
-        </div>
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="hitori5.png" alt="楽しいはず... It's Supposed to Be Fun..."></div>
-          <div class="seq-caption with-sub">
-            <span class="seq-num">16</span>
-            <div class="seq-text-group">
-              <span class="seq-name">楽しいはず...</span>
-              <span class="seq-sub">It's Supposed to Be Fun...</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      </article>
     </div>
   </section>
+
+  <!-- クリックで開くシリーズ詳細モーダル -->
+  <div id="seriesModal" class="series-modal" onclick="handleBackdropClick(event)">
+    <div class="modal-panel">
+      <div class="modal-top-bar">
+        <div>
+          <div id="modalLabel" class="modal-series-label">SERIES 01</div>
+          <h3 id="modalTitle" class="modal-series-title">シリーズタイトル</h3>
+          <p id="modalConcept" class="modal-series-concept">コンセプト文</p>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closeSeries()" aria-label="閉じる">&times;</button>
+      </div>
+      <div class="modal-flow-hint">STORY FLOW : LEFT TO RIGHT (01 &rarr; END)</div>
+      <div id="modalSequence" class="series-sequence"></div>
+      <div class="modal-footer-close">
+        <button type="button" onclick="closeSeries()">CLOSE SERIES</button>
+      </div>
+    </div>
+  </div>
 
   <!-- EXHIBITION（展示履歴・スケジュール） -->
   <section id="exhibition">
@@ -785,7 +856,7 @@
           </div>
         </div>
         <div class="ex-item with-thumb">
-          <div class="ex-thumb"><img src="tj4.png" alt="展示作品4 つながり"></div>
+          <div class="ex-thumb"><img src="tj5.png" alt="展示作品4 つながり"></div>
           <div>
             <div class="ex-date">2026.10.10 – 10.11</div>
             <div class="ex-title">The Square vol.5.5</div>
@@ -849,5 +920,90 @@
   <footer>
     &copy; 2026 Nonchopper. All Rights Reserved.
   </footer>
+
+  <script>
+    const SERIES_DATA = {
+      'series-1': {
+        label: 'SERIES 01 / 6 WORKS',
+        title: 'innocence? → adult?',
+        concept: '無垢さへの問いかけから傷と痛みを経て「大人になること」へと至る心の揺らぎの記録。',
+        items: [
+          { num: '01', img: 'innocence.png', name: 'innocence?', sub: '私は無垢なの？' },
+          { num: '02', img: 'beinnocent.png', name: 'be innocent?', sub: '無垢でいろというの？' },
+          { num: '03', img: 'experience.png', name: 'experience?', sub: 'これは経験？ それとも傷？' },
+          { num: '04', img: 'guilty.png', name: 'guilty?', sub: '私だけが悪いの？' },
+          { num: '05', img: 'resist.png', name: 'pain?', sub: 'この痛みは何？' },
+          { num: '06', img: 'adult.png', name: 'adult?', sub: 'これで大人になったの？' }
+        ]
+      },
+      'series-2': {
+        label: 'SERIES 02 / 5 WORKS',
+        title: '月を閉じ込めて / Confining the Moon',
+        concept: '格子の向こうに閉じ込めたのは月か、それとも自分自身か——自己防衛の檻を見つめる連作。',
+        items: [
+          { num: '01', img: 'tuki1.png', name: '月を閉じ込めて', sub: 'Confining the Moon' },
+          { num: '02', img: 'tuki2.png', name: '格子の月', sub: 'The Caged Moon' },
+          { num: '03', img: 'tuki3.png', name: '内に居たのはどっち？', sub: 'Which One Was Inside?' },
+          { num: '04', img: 'tuki4.png', name: '何を閉じ込めたのだろう？', sub: 'What Did I Lock Away?' },
+          { num: '05', img: 'tuki5.png', name: '防衛の檻', sub: 'Cage of Self-Defense' }
+        ]
+      },
+      'series-3': {
+        label: 'SERIES 03 / 5 WORKS',
+        title: '虚無 — 孤独 — ひとりぼっち。 — ひとりじゃない？ — 楽しいはず...',
+        concept: '賑やかな街の中で抱える虚無と孤独、そして「ひとりじゃない」という微かな希望への軌跡。',
+        items: [
+          { num: '01', img: 'htori1.png', name: '虚無', sub: 'Emptiness' },
+          { num: '02', img: 'hitori2.png', name: '孤独', sub: 'Solitude' },
+          { num: '03', img: 'hitori3.png', name: 'ひとりぼっち。', sub: 'All Alone.' },
+          { num: '04', img: 'hitori4.png', name: 'ひとりじゃない？', sub: 'Not Alone?' },
+          { num: '05', img: 'hitori5.png', name: '楽しいはず...', sub: "It's Supposed to Be Fun..." }
+        ]
+      }
+    };
+
+    function openSeries(seriesId) {
+      const data = SERIES_DATA[seriesId];
+      if (!data) return;
+
+      document.getElementById('modalLabel').textContent = data.label;
+      document.getElementById('modalTitle').textContent = data.title;
+      document.getElementById('modalConcept').textContent = data.concept;
+
+      const container = document.getElementById('modalSequence');
+      container.innerHTML = data.items.map(item => `
+        <div class="seq-item">
+          <div class="seq-thumb"><img src="${item.img}" alt="${item.name} ${item.sub}"></div>
+          <div class="seq-caption">
+            <span class="seq-num">${item.num}</span>
+            <div class="seq-text-group">
+              <span class="seq-name">${item.name}</span>
+              <span class="seq-sub">${item.sub}</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      const modal = document.getElementById('seriesModal');
+      modal.classList.add('active');
+      modal.scrollTop = 0;
+      document.body.classList.add('modal-open');
+    }
+
+    function closeSeries() {
+      document.getElementById('seriesModal').classList.remove('active');
+      document.body.classList.remove('modal-open');
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target.id === 'seriesModal') {
+        closeSeries();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSeries();
+    });
+  </script>
 </body>
 </html>
