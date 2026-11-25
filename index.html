@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><meta name="google-site-verification" content="WUcnpKrzycItEHbk7lxWcH_Ss04kIRB6SuspNpOj5-g" />
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="WUcnplKrzycItEHbk71xWcH_Ss04kIRB6SuspNp0j5-g" />
   <title>Nonchopper | Official Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -246,7 +247,7 @@
       letter-spacing: 0.05em;
     }
 
-    /* SERIES WORKS（入口：シリーズ単位のカバーカード一覧） */
+    /* SERIES WORKS */
     .works-intro {
       text-align: center;
       font-size: 0.86rem;
@@ -361,7 +362,7 @@
       text-decoration: underline;
     }
 
-    /* モーダル（クリック展開後のシリーズ詳細ビュー） */
+    /* モーダル */
     .series-modal {
       position: fixed;
       inset: 0;
@@ -533,7 +534,7 @@
       color: #05070e;
     }
 
-    /* SELECTIONS / AWARDS（入選歴）スタイル */
+    /* SELECTIONS / AWARDS */
     .selections-box {
       background: var(--bg-card);
       border: 1px solid var(--border-glow);
@@ -616,7 +617,7 @@
       margin-top: 0.2rem;
     }
 
-    /* EXHIBITION（展示履歴・スケジュール）スタイル */
+    /* EXHIBITION */
     .exhibition-box {
       background: var(--bg-card);
       border: 1px solid var(--border-glow);
@@ -725,7 +726,7 @@
         height: 88px;
       }
     }
-    /* LINKS スタイル */
+    /* LINKS */
     .links-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -832,9 +833,7 @@
     <h2>SERIES WORKS<span>連作シリーズ一覧</span></h2>
     <p class="works-intro">各シリーズをクリックすると、左から右へと連なる全作品の物語が開きます。</p>
 
-    <!-- 入口：各シリーズを1件（カバー1枚＋タイトル＋コンセプト一文）として表示 -->
     <div class="series-grid">
-      <!-- Series 01 -->
       <article class="series-card" onclick="openSeries('series-1')">
         <div class="series-cover">
           <img src="innocence.png" alt="innocence? → adult?">
@@ -848,7 +847,6 @@
         </div>
       </article>
 
-      <!-- Series 02 -->
       <article class="series-card" onclick="openSeries('series-2')">
         <div class="series-cover">
           <img src="tuki1.png" alt="月を閉じ込めて Confining the Moon">
@@ -862,7 +860,6 @@
         </div>
       </article>
 
-      <!-- Series 03 -->
       <article class="series-card" onclick="openSeries('series-3')">
         <div class="series-cover">
           <img src="htori1.png" alt="虚無 — 孤独 — ひとりぼっち。">
@@ -878,7 +875,6 @@
     </div>
   </section>
 
-  <!-- クリックで開くシリーズ詳細モーダル -->
   <div id="seriesModal" class="series-modal" onclick="handleBackdropClick(event)">
     <div class="modal-panel">
       <div class="modal-top-bar">
@@ -897,7 +893,6 @@
     </div>
   </div>
 
-  <!-- SELECTIONS & AWARDS（入選歴：1000展・現代作家展） -->
   <section id="selections">
     <h2>SELECTIONS &amp; AWARDS<span>入選歴</span></h2>
     <div class="selections-box">
@@ -934,7 +929,6 @@
     </div>
   </section>
 
-  <!-- EXHIBITION（展示履歴・スケジュール） -->
   <section id="exhibition">
     <h2>EXHIBITION<span>展示履歴・出展予定</span></h2>
     <div class="exhibition-box">
