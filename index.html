@@ -5,21 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="WUcnpKrzycItEHbk7lxWcH_Ss04kIRB6SuspNpOj5-g" />
 
+  <!-- Google Analytics 4（G-XXXXXXXXXX をご自身の測定IDに置き換えてください） -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
   <!-- 基本SEO・表記ゆれ対策（英語・カタカナ・ひらがな） -->
   <title>Nonchopper（ノンチョッパー） | Digital Artist &amp; Designer Official Portfolio</title>
   <meta name="description" content="デジタルアーティスト・デザイナー Nonchopper（ノンチョッパー／のんちょっぱー）の公式ポートフォリオサイト。写真の断片に光と抽象の線を重ねたデジタルアート連作、国内外の展示履歴、作品情報。" />
   <link rel="canonical" href="https://nonchopper9852.github.io/Nonchopperofficial/" />
 
-  <!-- OGP（SNSシェア時の表示最適化） -->
+  <!-- OGP（SNSシェア時の表示最適化・11/28告知用 large_image 対応） -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Nonchopper（ノンチョッパー） | Official Portfolio" />
   <meta property="og:title" content="Nonchopper（ノンチョッパー） | Digital Artist &amp; Designer" />
   <meta property="og:description" content="写真の断片に光と抽象の線を重ね、現実と幻想の狭間を描くデジタルアーティスト Nonchopper（ノンチョッパー）の公式ポートフォリオ。" />
   <meta property="og:url" content="https://nonchopper9852.github.io/Nonchopperofficial/" />
+  <meta property="og:image" content="https://nonchopper9852.github.io/Nonchopperofficial/yokogao.png" />
+  <meta property="og:image:alt" content="Nonchopper 作品『横顔ー涙はいつかー』" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@nonchopper" />
+  <meta name="twitter:image" content="https://nonchopper9852.github.io/Nonchopperofficial/yokogao.png" />
 
-  <!-- 構造化データ（JSON-LD：カタカナ・ひらがな・英語の同一人物紐づけ） -->
+  <!-- 構造化データ（JSON-LD：同一人物紐づけ + 連作シリーズ ItemList） -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -100,6 +112,40 @@
         "mainEntityOfPage": {
           "@id": "https://nonchopper9852.github.io/Nonchopperofficial/#webpage"
         }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://nonchopper9852.github.io/Nonchopperofficial/#series-works",
+        "name": "Nonchopper Narrative Art Series / 連作シリーズ一覧",
+        "description": "Multi-part narrative digital art series by Nonchopper unfolding from left to right.",
+        "numberOfItems": 3,
+        "itemListOrder": "https://schema.org/ItemListOrderAscending",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "SERIES 01: innocence? → adult? (From Innocence to Adulthood)",
+            "description": "6-part visual chronicle of emotional turbulence from questioning innocence through scars and pain toward becoming an adult.",
+            "image": "https://nonchopper9852.github.io/Nonchopperofficial/innocence.png",
+            "url": "https://nonchopper9852.github.io/Nonchopperofficial/#works"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "SERIES 02: 月を閉じ込めて / Confining the Moon",
+            "description": "5-part series gazing into the cage of self-defense—whether the moon or oneself is locked behind the lattice.",
+            "image": "https://nonchopper9852.github.io/Nonchopperofficial/tuki1.png",
+            "url": "https://nonchopper9852.github.io/Nonchopperofficial/#works"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "SERIES 03: 虚無 — 孤独 — ひとりぼっち。 (Emptiness — Solitude — All Alone.)",
+            "description": "5-part series tracing emptiness and solitude amid lively city streets toward a faint glimmer of hope: Not alone?",
+            "image": "https://nonchopper9852.github.io/Nonchopperofficial/htori1.png",
+            "url": "https://nonchopper9852.github.io/Nonchopperofficial/#works"
+          }
+        ]
       }
     ]
   }
@@ -146,6 +192,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 0.75rem;
       background: rgba(5, 7, 14, 0.78);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -158,6 +205,11 @@
       color: var(--text-main);
       text-decoration: none;
       white-space: nowrap;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
     nav {
       display: flex;
@@ -173,11 +225,31 @@
       white-space: nowrap;
     }
     nav a:hover { color: var(--accent-cyan); }
+    .lang-toggle {
+      background: rgba(92, 225, 230, 0.14);
+      border: 1px solid rgba(92, 225, 230, 0.45);
+      color: var(--accent-cyan);
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      padding: 0.32rem 0.75rem;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.25s;
+    }
+    .lang-toggle:hover {
+      background: var(--accent-cyan);
+      color: #05070e;
+      font-weight: 600;
+    }
     @media (max-width: 720px) {
-      header { padding: 0.85rem 3%; }
+      header { padding: 0.85rem 3%; gap: 0.4rem; }
       .logo { font-size: 0.92rem; letter-spacing: 0.08em; }
-      nav { gap: 0.5rem; }
-      nav a { font-size: 0.58rem; letter-spacing: 0.02em; }
+      .header-right { gap: 0.45rem; }
+      nav { gap: 0.45rem; }
+      nav a { font-size: 0.56rem; letter-spacing: 0.01em; }
+      .lang-toggle { font-size: 0.62rem; padding: 0.24rem 0.55rem; letter-spacing: 0.06em; }
     }
     /* トップ画面（ファーストビュー） */
     .hero {
@@ -898,43 +970,46 @@
 <body>
   <header>
     <a href="#" class="logo">NONCHOPPER</a>
-    <nav>
-      <a href="#concept">CONCEPT</a>
-      <a href="#works">WORKS</a>
-      <a href="#selections">SELECTIONS</a>
-      <a href="#exhibition">EXHIBITION</a>
-      <a href="#links">LINKS</a>
-    </nav>
+    <div class="header-right">
+      <nav>
+        <a href="#concept">CONCEPT</a>
+        <a href="#works">WORKS</a>
+        <a href="#selections">SELECTIONS</a>
+        <a href="#exhibition">EXHIBITION</a>
+        <a href="#links">LINKS</a>
+      </nav>
+      <button type="button" id="langToggle" class="lang-toggle" onclick="toggleLang()" aria-label="Switch language between Japanese and English">EN / JP</button>
+    </div>
   </header>
 
   <div class="hero">
-    <div class="hero-sub">Digital Artist &amp; Designer</div>
+    <div class="hero-sub" data-ja="Digital Artist &amp; Designer" data-en="Digital Artist &amp; Designer">Digital Artist &amp; Designer</div>
     <h1>NONCHOPPER</h1>
     <p>
-      写真の断片に光と抽象の線を重ね、現実と幻想の狭間を描く。<br>人間の感情や二面性、そして「結び付き」をテーマに表現を紡ぐ。
+      <span data-ja="写真の断片に光と抽象の線を重ね、現実と幻想の狭間を描く。人間の感情や二面性、そして「結び付き」をテーマに表現を紡ぐ。" data-en="Layering light and abstract lines over fragments of photography to depict the boundary between reality and illusion. Weaving visual narratives around human emotion, duality, and &quot;connection.&quot;">写真の断片に光と抽象の線を重ね、現実と幻想の狭間を描く。<br>人間の感情や二面性、そして「結び付き」をテーマに表現を紡ぐ。</span>
       <span class="en-sub">Layering light and abstract lines over fragments of photography to depict the boundary between reality and illusion.<br>Weaving visual narratives around human emotion, duality, and "connection."</span>
     </p>
     <div class="hero-actions">
-      <a href="#works" class="btn-primary">VIEW WORKS</a>
-      <a href="#exhibition" class="btn-outline">EXHIBITION</a>
+      <a href="#works" class="btn-primary" data-ja="VIEW WORKS" data-en="VIEW WORKS">VIEW WORKS</a>
+      <a href="#exhibition" class="btn-outline" data-ja="EXHIBITION" data-en="EXHIBITION">EXHIBITION</a>
     </div>
   </div>
 
   <section id="concept">
-    <h2>CONCEPT &amp; PROFILE<span>作品世界とアーティストについて / About the World &amp; Artist</span></h2>
+    <h2>CONCEPT &amp; PROFILE<span data-ja="作品世界とアーティストについて / About the World &amp; Artist" data-en="About the World &amp; Artist / 作品世界とアーティストについて">作品世界とアーティストについて / About the World &amp; Artist</span></h2>
     <div class="concept-box">
       <p class="concept-lead">
-        現実の断片に、光と抽象の線を重ねる。<br>
-        目に見えない感情と<em>「結び付き」</em>の輪郭を描く。
+        <span data-ja="現実の断片に、光と抽象の線を重ねる。目に見えない感情と<em>「結び付き」</em>の輪郭を描く。" data-en="Layering light and abstract lines over fragments of reality, tracing the contours of unseen emotions and <em>&quot;connection.&quot;</em>">現実の断片に、光と抽象の線を重ねる。<br>
+        目に見えない感情と<em>「結び付き」</em>の輪郭を描く。</span>
         <span class="en-sub">Layering light and abstract lines over fragments of reality,<br>tracing the contours of unseen emotions and "connection."</span>
       </p>
       <div class="concept-body">
         <p>
-          私たちが日々目にしている風景や記憶の断片に、デジタルの光・色彩・抽象的なラインをレイヤーとして重ね合わせることで、「現実」と「幻想（虚像）」の境界線を表現しています。
+          <span data-ja="私たちが日々目にしている風景や記憶の断片に、デジタルの光・色彩・抽象的なラインをレイヤーとして重ね合わせることで、「現実」と「幻想（虚像）」の境界線を表現しています。" data-en="By layering digital light, color, and abstract lines onto everyday landscapes and fragments of memory, my work explores the threshold between &quot;reality&quot; and &quot;illusion.&quot;">私たちが日々目にしている風景や記憶の断片に、デジタルの光・色彩・抽象的なラインをレイヤーとして重ね合わせることで、「現実」と「幻想（虚像）」の境界線を表現しています。</span>
           <span class="en-sub">By layering digital light, color, and abstract lines onto everyday landscapes and fragments of memory, my work explores the threshold between "reality" and "illusion."</span>
         </p>
         <p>
-          人との「つながり」や心の二面性、賑やかな街の中でふと訪れる孤独感、そしてその先にある人と人・感情と世界の「結び付き」をテーマに、静止画のデジタルアートから連続性のあるショートムービー、物語執筆まで領域を横断した表現を追求しています。
+          <span data-ja="人との「つながり」や心の二面性、賑やかな街の中でふと訪れる孤独感、そしてその先にある人と人・感情と世界の「結び付き」をテーマに、静止画のデジタルアートから連続性のあるショートムービー、物語執筆まで領域を横断した表現を追求しています。" data-en="Guided by themes of human bonds, emotional duality, sudden solitude within vibrant cityscapes, and the deeper connections linking people and the world, my practice spans still digital artworks, sequential short films, and serialized fiction.">人との「つながり」や心の二面性、賑やかな街の中でふと訪れる孤独感、そしてその先にある人と人・感情と世界の「結び付き」をテーマに、静止画のデジタルアートから連続性のあるショートムービー、物語執筆まで領域を横断した表現を追求しています。</span>
           <span class="en-sub">Guided by themes of human bonds, emotional duality, sudden solitude within vibrant cityscapes, and the deeper connections linking people and the world, my practice spans still digital artworks, sequential short films, and serialized fiction.</span>
         </p>
       </div>
@@ -946,14 +1021,14 @@
           <h3>ARTIST PROFILE</h3>
           <div class="profile-name">Nonchopper</div>
           <p class="profile-text">
-            独学でデザイン・デジタルアートを学び、写真とデジタル表現を融合させた作品制作を行うアーティスト・デザイナー。国内外のギャラリー展示やアートフェアへの出展をはじめ、ジークレー作品の制作、ショート動画、noteでの小説・エッセイ執筆など多角的に活動。
+            <span data-ja="独学でデザイン・デジタルアートを学び、写真とデジタル表現を融合させた作品制作を行うアーティスト・デザイナー。国内外のギャラリー展示やアートフェアへの出展をはじめ、ジークレー作品の制作、ショート動画、noteでの小説・エッセイ執筆など多角的に活動。" data-en="A self-taught digital artist and designer creating mixed-media works that fuse photography with digital expression. Active across domestic and international gallery exhibitions and art fairs, giclée print editions, short-form videos, and serialized novels and essays on note.">独学でデザイン・デジタルアートを学び、写真とデジタル表現を融合させた作品制作を行うアーティスト・デザイナー。国内外のギャラリー展示やアートフェアへの出展をはじめ、ジークレー作品の制作、ショート動画、noteでの小説・エッセイ執筆など多角的に活動。</span>
             <span class="en-sub">A self-taught digital artist and designer creating mixed-media works that fuse photography with digital expression. Active across domestic and international gallery exhibitions and art fairs, giclée print editions, short-form videos, and serialized novels and essays on note.</span>
           </p>
         </div>
         <div class="profile-block">
           <h3>EXPRESSION &amp; TOOLS</h3>
           <p class="profile-text">
-            写真の質感に光と線を幾重にも重ねる独自のレイヤー表現を中心に、視覚と物語が交差する作品を制作。
+            <span data-ja="写真の質感に光と線を幾重にも重ねる独自のレイヤー表現を中心に、視覚と物語が交差する作品を制作。" data-en="Focusing on a signature multi-layered technique that weaves light and lines over photographic textures, creating works where visual art and storytelling intersect.">写真の質感に光と線を幾重にも重ねる独自のレイヤー表現を中心に、視覚と物語が交差する作品を制作。</span>
             <span class="en-sub">Focusing on a signature multi-layered technique that weaves light and lines over photographic textures, creating works where visual art and storytelling intersect.</span>
           </p>
           <div class="tag-list">
@@ -971,9 +1046,9 @@
   </section>
 
   <section id="works">
-    <h2>SERIES WORKS<span>連作シリーズ一覧 / Narrative Art Series</span></h2>
+    <h2>SERIES WORKS<span data-ja="連作シリーズ一覧 / Narrative Art Series" data-en="Narrative Art Series / 連作シリーズ一覧">連作シリーズ一覧 / Narrative Art Series</span></h2>
     <p class="works-intro">
-      各シリーズをクリックすると、左から右へと連なる全作品の物語が開きます。
+      <span data-ja="各シリーズをクリックすると、左から右へと連なる全作品の物語が開きます。" data-en="Click any series card to open the full sequence unfolding from left to right.">各シリーズをクリックすると、左から右へと連なる全作品の物語が開きます。</span>
       <span class="en-sub">Click any series card to open the full sequence unfolding from left to right.</span>
     </p>
 
@@ -990,10 +1065,10 @@
             <span class="en-sub">From Innocence to Adulthood</span>
           </h3>
           <p class="series-card-desc">
-            無垢さへの問いかけから傷と痛みを経て「大人になること」へと至る心の揺らぎの記録。
+            <span data-ja="無垢さへの問いかけから傷と痛みを経て「大人になること」へと至る心の揺らぎの記録。" data-en="A visual chronicle of emotional turbulence—from questioning innocence, through scars and pain, toward becoming an adult.">無垢さへの問いかけから傷と痛みを経て「大人になること」へと至る心の揺らぎの記録。</span>
             <span class="en-sub">A visual chronicle of emotional turbulence—from questioning innocence, through scars and pain, toward becoming an adult.</span>
           </p>
-          <div class="series-card-cta">READ SERIES &rarr;</div>
+          <div class="series-card-cta" data-ja="READ SERIES &rarr;" data-en="READ SERIES &rarr;">READ SERIES &rarr;</div>
         </div>
       </article>
 
@@ -1005,14 +1080,14 @@
         <div class="series-card-body">
           <div class="series-card-num">SERIES 02</div>
           <h3 class="series-card-title">
-            月を閉じ込めて
+            <span data-ja="月を閉じ込めて" data-en="Confining the Moon">月を閉じ込めて</span>
             <span class="en-sub">Confining the Moon</span>
           </h3>
           <p class="series-card-desc">
-            格子の向こうに閉じ込めたのは月か、それとも自分自身か——自己防衛の檻を見つめる連作。
+            <span data-ja="格子の向こうに閉じ込めたのは月か、それとも自分自身か——自己防衛の檻を見つめる連作。" data-en="Was it the moon locked behind the lattice, or oneself? A series gazing into the cage of self-defense.">格子の向こうに閉じ込めたのは月か、それとも自分自身か——自己防衛の檻を見つめる連作。</span>
             <span class="en-sub">Was it the moon locked behind the lattice, or oneself? A series gazing into the cage of self-defense.</span>
           </p>
-          <div class="series-card-cta">READ SERIES &rarr;</div>
+          <div class="series-card-cta" data-ja="READ SERIES &rarr;" data-en="READ SERIES &rarr;">READ SERIES &rarr;</div>
         </div>
       </article>
 
@@ -1024,14 +1099,14 @@
         <div class="series-card-body">
           <div class="series-card-num">SERIES 03</div>
           <h3 class="series-card-title">
-            虚無 — 孤独 — ひとりぼっち。
+            <span data-ja="虚無 — 孤独 — ひとりぼっち。" data-en="Emptiness — Solitude — All Alone.">虚無 — 孤独 — ひとりぼっち。</span>
             <span class="en-sub">Emptiness — Solitude — All Alone.</span>
           </h3>
           <p class="series-card-desc">
-            賑やかな街の中で抱える虚無と孤独、そして「ひとりじゃない」という微かな希望への軌跡。
+            <span data-ja="賑やかな街の中で抱える虚無と孤独、そして「ひとりじゃない」という微かな希望への軌跡。" data-en="Tracing emptiness and solitude amid lively city streets toward a faint glimmer of hope: &quot;Not alone?&quot;">賑やかな街の中で抱える虚無と孤独、そして「ひとりじゃない」という微かな希望への軌跡。</span>
             <span class="en-sub">Tracing emptiness and solitude amid lively city streets toward a faint glimmer of hope: "Not alone?"</span>
           </p>
-          <div class="series-card-cta">READ SERIES &rarr;</div>
+          <div class="series-card-cta" data-ja="READ SERIES &rarr;" data-en="READ SERIES &rarr;">READ SERIES &rarr;</div>
         </div>
       </article>
     </div>
@@ -1047,16 +1122,16 @@
         </div>
         <button type="button" class="modal-close-btn" onclick="closeSeries()" aria-label="閉じる / Close">&times;</button>
       </div>
-      <div class="modal-flow-hint">STORY FLOW : LEFT TO RIGHT (01 &rarr; END) / 左から右へ展開</div>
+      <div id="modalFlowHint" class="modal-flow-hint" data-ja="STORY FLOW : LEFT TO RIGHT (01 &rarr; END) / 左から右へ展開" data-en="STORY FLOW : LEFT TO RIGHT (01 &rarr; END)">STORY FLOW : LEFT TO RIGHT (01 &rarr; END) / 左から右へ展開</div>
       <div id="modalSequence" class="series-sequence"></div>
       <div class="modal-footer-close">
-        <button type="button" onclick="closeSeries()">CLOSE SERIES / 閉じる</button>
+        <button type="button" id="modalCloseFooterBtn" onclick="closeSeries()" data-ja="CLOSE SERIES / 閉じる" data-en="CLOSE SERIES">CLOSE SERIES / 閉じる</button>
       </div>
     </div>
   </div>
 
   <section id="selections">
-    <h2>SELECTIONS &amp; AWARDS<span>入選歴 / Selected Exhibitions &amp; Honors</span></h2>
+    <h2>SELECTIONS &amp; AWARDS<span data-ja="入選歴 / Selected Exhibitions &amp; Honors" data-en="Selected Exhibitions &amp; Honors / 入選歴">入選歴 / Selected Exhibitions &amp; Honors</span></h2>
     <div class="selections-box">
       <div class="sel-grid">
         <article class="sel-card">
@@ -1064,16 +1139,16 @@
             <img src="nyusen_toram1000.png" alt="枯山水 / Karesansui">
           </div>
           <div class="sel-body">
-            <span class="sel-tag">入選 / Selected</span>
+            <span class="sel-tag" data-ja="入選 / Selected" data-en="Selected">入選 / Selected</span>
             <h3 class="sel-exhibition-name">
-              一般社団法人TORAM1000展
+              <span data-ja="一般社団法人TORAM1000展" data-en="TORAM 1000 Exhibition">一般社団法人TORAM1000展</span>
               <span class="en-sub">TORAM 1000 Exhibition</span>
             </h3>
             <div class="sel-work-title">
-              『枯山水』
+              <span data-ja="『枯山水』" data-en="Karesansui (Dry Landscape Garden)">『枯山水』</span>
               <span class="sel-work-en">Karesansui (Dry Landscape Garden)</span>
             </div>
-            <div class="sel-detail">2026.10 選出 / Selected in Oct 2026</div>
+            <div class="sel-detail" data-ja="2026.10 選出 / Selected in Oct 2026" data-en="Selected in Oct 2026">2026.10 選出 / Selected in Oct 2026</div>
           </div>
         </article>
         <article class="sel-card">
@@ -1081,16 +1156,16 @@
             <img src="yokogao.png" alt="横顔ー涙はいつかー / Profile - Tears Will Someday...">
           </div>
           <div class="sel-body">
-            <span class="sel-tag">入選 / Selected</span>
+            <span class="sel-tag" data-ja="入選 / Selected" data-en="Selected">入選 / Selected</span>
             <h3 class="sel-exhibition-name">
-              第18回躍動する現代作家展
+              <span data-ja="第18回躍動する現代作家展" data-en="18th Dynamic Contemporary Artists Exhibition">第18回躍動する現代作家展</span>
               <span class="en-sub">18th Dynamic Contemporary Artists Exhibition</span>
             </h3>
             <div class="sel-work-title">
-              『横顔ー涙はいつかー』
+              <span data-ja="『横顔ー涙はいつかー』" data-en="Profile - Tears Will Someday...">『横顔ー涙はいつかー』</span>
               <span class="sel-work-en">Profile - Tears Will Someday...</span>
             </div>
-            <div class="sel-detail">国立新美術館 / The National Art Center, Tokyo（2026.11.26 – 12.06）</div>
+            <div class="sel-detail" data-ja="国立新美術館 / The National Art Center, Tokyo（2026.11.26 – 12.06）" data-en="The National Art Center, Tokyo (Nov 26 – Dec 6, 2026)">国立新美術館 / The National Art Center, Tokyo（2026.11.26 – 12.06）</div>
           </div>
         </article>
       </div>
@@ -1098,41 +1173,41 @@
   </section>
 
   <section id="exhibition">
-    <h2>EXHIBITION<span>展示履歴・出展予定 / Exhibition History &amp; Schedule</span></h2>
+    <h2>EXHIBITION<span data-ja="展示履歴・出展予定 / Exhibition History &amp; Schedule" data-en="Exhibition History &amp; Schedule / 展示履歴・出展予定">展示履歴・出展予定 / Exhibition History &amp; Schedule</span></h2>
     <div class="exhibition-box">
-      <div class="ex-group-title">UPCOMING &amp; CURRENT / 今後の予定・開催中</div>
+      <div class="ex-group-title" data-ja="UPCOMING &amp; CURRENT / 今後の予定・開催中" data-en="UPCOMING &amp; CURRENT">UPCOMING &amp; CURRENT / 今後の予定・開催中</div>
       <div class="ex-list">
         <div class="ex-item featured">
           <div class="ex-date">2026.12</div>
           <div>
             <div class="ex-title">
-              KIZUNA 2026 グループ展
+              <span data-ja="KIZUNA 2026 グループ展" data-en="KIZUNA 2026 Group Exhibition">KIZUNA 2026 グループ展</span>
               <span class="en-sub">KIZUNA 2026 Group Exhibition</span>
             </div>
-            <div class="ex-venue">GALLERY AND LINKS 81（東京・銀座 / Ginza, Tokyo）</div>
+            <div class="ex-venue" data-ja="GALLERY AND LINKS 81（東京・銀座 / Ginza, Tokyo）" data-en="GALLERY AND LINKS 81 (Ginza, Tokyo)">GALLERY AND LINKS 81（東京・銀座 / Ginza, Tokyo）</div>
           </div>
         </div>
         <div class="ex-item">
           <div class="ex-date">2027.01</div>
           <div>
             <div class="ex-title">
-              モノクローム展2027
+              <span data-ja="モノクローム展2027" data-en="Monochrome Exhibition 2027">モノクローム展2027</span>
               <span class="en-sub">Monochrome Exhibition 2027</span>
             </div>
-            <div class="ex-venue">Gallery Kunitachi（東京・国立 / Kunitachi, Tokyo）</div>
+            <div class="ex-venue" data-ja="Gallery Kunitachi（東京・国立 / Kunitachi, Tokyo）" data-en="Gallery Kunitachi (Kunitachi, Tokyo)">Gallery Kunitachi（東京・国立 / Kunitachi, Tokyo）</div>
           </div>
         </div>
       </div>
 
-      <div class="ex-group-title past">PAST EXHIBITIONS / 過去の展示履歴</div>
+      <div class="ex-group-title past" data-ja="PAST EXHIBITIONS / 過去の展示履歴" data-en="PAST EXHIBITIONS">PAST EXHIBITIONS / 過去の展示履歴</div>
       <div class="ex-list">
         <div class="ex-item with-thumb">
           <div class="ex-thumb"><img src="tj6.png" alt="展示作品6 共踊共楽"></div>
           <div>
             <div class="ex-date">2026.11</div>
             <div class="ex-title">The Square OSAKA vol.2</div>
-            <div class="ex-work"><span class="ex-badge">展示作品6 / Work 06</span>『共踊共楽』 / Dancing &amp; Rejoicing Together</div>
-            <div class="ex-venue">Seaside Studio CASO（大阪 / Osaka）</div>
+            <div class="ex-work"><span class="ex-badge" data-ja="展示作品6 / Work 06" data-en="Work 06">展示作品6 / Work 06</span><span data-ja="『共踊共楽』 / Dancing &amp; Rejoicing Together" data-en="Dancing &amp; Rejoicing Together">『共踊共楽』 / Dancing &amp; Rejoicing Together</span></div>
+            <div class="ex-venue" data-ja="Seaside Studio CASO（大阪 / Osaka）" data-en="Seaside Studio CASO (Osaka)">Seaside Studio CASO（大阪 / Osaka）</div>
           </div>
         </div>
         <div class="ex-item with-thumb">
@@ -1140,11 +1215,11 @@
           <div>
             <div class="ex-date">2026.10.29 – 11.03</div>
             <div class="ex-title">
-              猫濱展 vol.2
+              <span data-ja="猫濱展 vol.2" data-en="Nekohama Exhibition vol.2">猫濱展 vol.2</span>
               <span class="en-sub">Nekohama Exhibition vol.2</span>
             </div>
-            <div class="ex-work"><span class="ex-badge">展示作品5 / Work 05</span>『家族猫』 / Family Cat</div>
-            <div class="ex-venue">万国橋ギャラリー / Bankokubashi Gallery（横浜 / Yokohama）</div>
+            <div class="ex-work"><span class="ex-badge" data-ja="展示作品5 / Work 05" data-en="Work 05">展示作品5 / Work 05</span><span data-ja="『家族猫』 / Family Cat" data-en="Family Cat">『家族猫』 / Family Cat</span></div>
+            <div class="ex-venue" data-ja="万国橋ギャラリー / Bankokubashi Gallery（横浜 / Yokohama）" data-en="Bankokubashi Gallery (Yokohama)">万国橋ギャラリー / Bankokubashi Gallery（横浜 / Yokohama）</div>
           </div>
         </div>
         <div class="ex-item with-thumb">
@@ -1152,8 +1227,8 @@
           <div>
             <div class="ex-date">2026.10.10 – 10.11</div>
             <div class="ex-title">The Square vol.5.5</div>
-            <div class="ex-work"><span class="ex-badge">展示作品4 / Work 04</span>『つながり』 / Connection</div>
-            <div class="ex-venue">東京芸術劇場 ギャラリー1 / Tokyo Metropolitan Theatre Gallery 1（東京・池袋 / Ikebukuro, Tokyo）</div>
+            <div class="ex-work"><span class="ex-badge" data-ja="展示作品4 / Work 04" data-en="Work 04">展示作品4 / Work 04</span><span data-ja="『つながり』 / Connection" data-en="Connection">『つながり』 / Connection</span></div>
+            <div class="ex-venue" data-ja="東京芸術劇場 ギャラリー1 / Tokyo Metropolitan Theatre Gallery 1（東京・池袋 / Ikebukuro, Tokyo）" data-en="Tokyo Metropolitan Theatre Gallery 1 (Ikebukuro, Tokyo)">東京芸術劇場 ギャラリー1 / Tokyo Metropolitan Theatre Gallery 1（東京・池袋 / Ikebukuro, Tokyo）</div>
           </div>
         </div>
         <div class="ex-item with-thumb">
@@ -1161,11 +1236,11 @@
           <div>
             <div class="ex-date">2026.09.18 – 11.17</div>
             <div class="ex-title">
-              MEITETSU ART GALLERY「TRIPアートコレクション」
+              <span data-ja="MEITETSU ART GALLERY「TRIPアートコレクション」" data-en="MEITETSU ART GALLERY &quot;TRIP Art Collection&quot;">MEITETSU ART GALLERY「TRIPアートコレクション」</span>
               <span class="en-sub">MEITETSU ART GALLERY "TRIP Art Collection"</span>
             </div>
-            <div class="ex-work"><span class="ex-badge">展示作品3 / Work 03</span>『蜃気楼』 / Mirage</div>
-            <div class="ex-venue">名鉄瀬戸線 / Meitetsu Seto Line Stations（栄町駅・大曽根駅・大森・金城学院前駅・尾張旭駅 / Sakaemachi, Ozone, Omori-Kinjogakuin-mae, Owariasahi）</div>
+            <div class="ex-work"><span class="ex-badge" data-ja="展示作品3 / Work 03" data-en="Work 03">展示作品3 / Work 03</span><span data-ja="『蜃気楼』 / Mirage" data-en="Mirage">『蜃気楼』 / Mirage</span></div>
+            <div class="ex-venue" data-ja="名鉄瀬戸線 / Meitetsu Seto Line Stations（栄町駅・大曽根駅・大森・金城学院前駅・尾張旭駅 / Sakaemachi, Ozone, Omori-Kinjogakuin-mae, Owariasahi）" data-en="Meitetsu Seto Line Stations (Sakaemachi, Ozone, Omori-Kinjogakuin-mae, Owariasahi)">名鉄瀬戸線 / Meitetsu Seto Line Stations（栄町駅・大曽根駅・大森・金城学院前駅・尾張旭駅 / Sakaemachi, Ozone, Omori-Kinjogakuin-mae, Owariasahi）</div>
           </div>
         </div>
         <div class="ex-item with-thumb">
@@ -1173,11 +1248,11 @@
           <div>
             <div class="ex-date">2026.08.22 – 08.23</div>
             <div class="ex-title">
-              横浜 デジ絵 vol.2
+              <span data-ja="横浜 デジ絵 vol.2" data-en="Yokohama Digital Art vol.2">横浜 デジ絵 vol.2</span>
               <span class="en-sub">Yokohama Digital Art vol.2</span>
             </div>
-            <div class="ex-work"><span class="ex-badge">展示作品2 / Work 02</span>『刃』 / Blade</div>
-            <div class="ex-venue">みなとみらいギャラリーABC / Minatomirai Gallery ABC（横浜 / Yokohama）</div>
+            <div class="ex-work"><span class="ex-badge" data-ja="展示作品2 / Work 02" data-en="Work 02">展示作品2 / Work 02</span><span data-ja="『刃』 / Blade" data-en="Blade">『刃』 / Blade</span></div>
+            <div class="ex-venue" data-ja="みなとみらいギャラリーABC / Minatomirai Gallery ABC（横浜 / Yokohama）" data-en="Minatomirai Gallery ABC (Yokohama)">みなとみらいギャラリーABC / Minatomirai Gallery ABC（横浜 / Yokohama）</div>
           </div>
         </div>
         <div class="ex-item with-thumb">
@@ -1185,11 +1260,11 @@
           <div>
             <div class="ex-date">2026.07.29 – 09.18</div>
             <div class="ex-title">
-              MEITETSU ART GALLERY「Dreamアートコレクション」
+              <span data-ja="MEITETSU ART GALLERY「Dreamアートコレクション」" data-en="MEITETSU ART GALLERY &quot;Dream Art Collection&quot;">MEITETSU ART GALLERY「Dreamアートコレクション」</span>
               <span class="en-sub">MEITETSU ART GALLERY "Dream Art Collection"</span>
             </div>
-            <div class="ex-work"><span class="ex-badge">展示作品1 / Work 01</span>『JAPAN』</div>
-            <div class="ex-venue">名鉄瀬戸線 / Meitetsu Seto Line Stations（栄町駅・大曽根駅・大森・金城学院前駅・尾張旭駅 / Sakaemachi, Ozone, Omori-Kinjogakuin-mae, Owariasahi）</div>
+            <div class="ex-work"><span class="ex-badge" data-ja="展示作品1 / Work 01" data-en="Work 01">展示作品1 / Work 01</span>『JAPAN』</div>
+            <div class="ex-venue" data-ja="名鉄瀬戸線 / Meitetsu Seto Line Stations（栄町駅・大曽根駅・大森・金城学院前駅・尾張旭駅 / Sakaemachi, Ozone, Omori-Kinjogakuin-mae, Owariasahi）" data-en="Meitetsu Seto Line Stations (Sakaemachi, Ozone, Omori-Kinjogakuin-mae, Owariasahi)">名鉄瀬戸線 / Meitetsu Seto Line Stations（栄町駅・大曽根駅・大森・金城学院前駅・尾張旭駅 / Sakaemachi, Ozone, Omori-Kinjogakuin-mae, Owariasahi）</div>
           </div>
         </div>
       </div>
@@ -1197,23 +1272,23 @@
   </section>
 
   <section id="links">
-    <h2>PLATFORMS &amp; SNS<span>活動リンク・作品販売 / Platforms, SNS &amp; Shop</span></h2>
+    <h2>PLATFORMS &amp; SNS<span data-ja="活動リンク・作品販売 / Platforms, SNS &amp; Shop" data-en="Platforms, SNS &amp; Shop / 活動リンク・作品販売">活動リンク・作品販売 / Platforms, SNS &amp; Shop</span></h2>
     <div class="links-grid">
       <a href="https://www.instagram.com/non_chopper_/" target="_blank" rel="noopener" class="link-card">
         <strong>Instagram</strong>
-        <span>@non_chopper_ / 最新作品・リール<span class="en-sub">Latest Artworks &amp; Reels</span></span>
+        <span><span data-ja="@non_chopper_ / 最新作品・リール" data-en="@non_chopper_ / Latest Artworks &amp; Reels">@non_chopper_ / 最新作品・リール</span><span class="en-sub">Latest Artworks &amp; Reels</span></span>
       </a>
       <a href="https://x.com/nonchopper?s=11" target="_blank" rel="noopener" class="link-card">
         <strong>X (Twitter)</strong>
-        <span>@nonchopper / 制作過程・展示情報<span class="en-sub">Work-in-Progress &amp; Exhibition Updates</span></span>
+        <span><span data-ja="@nonchopper / 制作過程・展示情報" data-en="@nonchopper / Work-in-Progress &amp; Exhibition Updates">@nonchopper / 制作過程・展示情報</span><span class="en-sub">Work-in-Progress &amp; Exhibition Updates</span></span>
       </a>
       <a id="noteLinkCard" href="https://note.com/nonchopper" target="_blank" rel="noopener" class="link-card">
         <strong>note</strong>
-        <span>制作秘話・エッセイ・連載小説<span class="en-sub">Behind-the-Scenes Stories, Essays &amp; Serialized Fiction</span></span>
+        <span><span data-ja="制作秘話・エッセイ・連載小説" data-en="Behind-the-Scenes Stories, Essays &amp; Serialized Fiction">制作秘話・エッセイ・連載小説</span><span class="en-sub">Behind-the-Scenes Stories, Essays &amp; Serialized Fiction</span></span>
       </a>
       <a href="https://nonchopper.base.shop" target="_blank" rel="noopener" class="link-card">
         <strong>Official Shop (BASE)</strong>
-        <span>ジークレー作品・アクリルスタンド販売<span class="en-sub">Giclée Prints &amp; Acrylic Art Stands</span></span>
+        <span><span data-ja="ジークレー作品・アクリルスタンド販売" data-en="Giclée Prints &amp; Acrylic Art Stands">ジークレー作品・アクリルスタンド販売</span><span class="en-sub">Giclée Prints &amp; Acrylic Art Stands</span></span>
       </a>
     </div>
   </section>
@@ -1223,67 +1298,119 @@
   </footer>
 
   <script>
+    let currentLang = 'ja';
+    let currentSeriesId = null;
+
     const SERIES_DATA = {
       'series-1': {
         label: 'SERIES 01 / 6 WORKS',
-        title: 'innocence? → adult?',
-        concept: '無垢さへの問いかけから傷と痛みを経て「大人になること」へと至る心の揺らぎの記録。 / A visual chronicle of emotional turbulence—from questioning innocence, through scars and pain, toward becoming an adult.',
+        titleJa: 'innocence? → adult?',
+        titleEn: 'innocence? → adult? (From Innocence to Adulthood)',
+        conceptJa: '無垢さへの問いかけから傷と痛みを経て「大人になること」へと至る心の揺らぎの記録。 / A visual chronicle of emotional turbulence—from questioning innocence, through scars and pain, toward becoming an adult.',
+        conceptEn: 'A visual chronicle of emotional turbulence—from questioning innocence, through scars and pain, toward becoming an adult.',
         items: [
-          { num: '01', img: 'innocence.png', name: 'innocence?', sub: '私は無垢なの？ / Am I innocent?' },
-          { num: '02', img: 'beinnocent.png', name: 'be innocent?', sub: '無垢でいろというの？ / Are you telling me to stay innocent?' },
-          { num: '03', img: 'experience.png', name: 'experience?', sub: 'これは経験？ それとも傷？ / Is this experience, or a scar?' },
-          { num: '04', img: 'guilty.png', name: 'guilty?', sub: '私だけが悪いの？ / Am I the only one to blame?' },
-          { num: '05', img: 'resist.png', name: 'pain?', sub: 'この痛みは何？ / What is this pain?' },
-          { num: '06', img: 'adult.png', name: 'adult?', sub: 'これで大人になったの？ / Does this make me an adult?' }
+          { num: '01', img: 'innocence.png', nameJa: 'innocence?', nameEn: 'innocence?', subJa: '私は無垢なの？ / Am I innocent?', subEn: 'Am I innocent?' },
+          { num: '02', img: 'beinnocent.png', nameJa: 'be innocent?', nameEn: 'be innocent?', subJa: '無垢でいろというの？ / Are you telling me to stay innocent?', subEn: 'Are you telling me to stay innocent?' },
+          { num: '03', img: 'experience.png', nameJa: 'experience?', nameEn: 'experience?', subJa: 'これは経験？ それとも傷？ / Is this experience, or a scar?', subEn: 'Is this experience, or a scar?' },
+          { num: '04', img: 'guilty.png', nameJa: 'guilty?', nameEn: 'guilty?', subJa: '私だけが悪いの？ / Am I the only one to blame?', subEn: 'Am I the only one to blame?' },
+          { num: '05', img: 'resist.png', nameJa: 'pain?', nameEn: 'pain?', subJa: 'この痛みは何？ / What is this pain?', subEn: 'What is this pain?' },
+          { num: '06', img: 'adult.png', nameJa: 'adult?', nameEn: 'adult?', subJa: 'これで大人になったの？ / Does this make me an adult?', subEn: 'Does this make me an adult?' }
         ]
       },
       'series-2': {
         label: 'SERIES 02 / 5 WORKS',
-        title: '月を閉じ込めて / Confining the Moon',
-        concept: '格子の向こうに閉じ込めたのは月か、それとも自分自身か——自己防衛の檻を見つめる連作。 / Was it the moon locked behind the lattice, or oneself? A series gazing into the cage of self-defense.',
+        titleJa: '月を閉じ込めて / Confining the Moon',
+        titleEn: 'Confining the Moon',
+        conceptJa: '格子の向こうに閉じ込めたのは月か、それとも自分自身か——自己防衛の檻を見つめる連作。 / Was it the moon locked behind the lattice, or oneself? A series gazing into the cage of self-defense.',
+        conceptEn: 'Was it the moon locked behind the lattice, or oneself? A series gazing into the cage of self-defense.',
         items: [
-          { num: '01', img: 'tuki1.png', name: '月を閉じ込めて', sub: 'Confining the Moon' },
-          { num: '02', img: 'tuki2.png', name: '格子の月', sub: 'The Caged Moon' },
-          { num: '03', img: 'tuki3.png', name: '内に居たのはどっち？', sub: 'Which One Was Inside?' },
-          { num: '04', img: 'tuki4.png', name: '何を閉じ込めたのだろう？', sub: 'What Did I Lock Away?' },
-          { num: '05', img: 'tuki5.png', name: '防衛の檻', sub: 'Cage of Self-Defense' }
+          { num: '01', img: 'tuki1.png', nameJa: '月を閉じ込めて', nameEn: 'Confining the Moon', subJa: 'Confining the Moon', subEn: 'Confining the Moon' },
+          { num: '02', img: 'tuki2.png', nameJa: '格子の月', nameEn: 'The Caged Moon', subJa: 'The Caged Moon', subEn: 'The Caged Moon' },
+          { num: '03', img: 'tuki3.png', nameJa: '内に居たのはどっち？', nameEn: 'Which One Was Inside?', subJa: 'Which One Was Inside?', subEn: 'Which One Was Inside?' },
+          { num: '04', img: 'tuki4.png', nameJa: '何を閉じ込めたのだろう？', nameEn: 'What Did I Lock Away?', subJa: 'What Did I Lock Away?', subEn: 'What Did I Lock Away?' },
+          { num: '05', img: 'tuki5.png', nameJa: '防衛の檻', nameEn: 'Cage of Self-Defense', subJa: 'Cage of Self-Defense', subEn: 'Cage of Self-Defense' }
         ]
       },
       'series-3': {
         label: 'SERIES 03 / 5 WORKS',
-        title: '虚無 — 孤独 — ひとりぼっち。 — ひとりじゃない？ — 楽しいはず... / Emptiness to Not Alone?',
-        concept: '賑やかな街の中で抱える虚無と孤独、そして「ひとりじゃない」という微かな希望への軌跡。 / Tracing emptiness and solitude amid lively city streets toward a faint glimmer of hope: "Not alone?"',
+        titleJa: '虚無 — 孤独 — ひとりぼっち。 — ひとりじゃない？ — 楽しいはず... / Emptiness to Not Alone?',
+        titleEn: 'Emptiness — Solitude — All Alone. — Not Alone? — Supposed to Be Fun...',
+        conceptJa: '賑やかな街の中で抱える虚無と孤独、そして「ひとりじゃない」という微かな希望への軌跡。 / Tracing emptiness and solitude amid lively city streets toward a faint glimmer of hope: "Not alone?"',
+        conceptEn: 'Tracing emptiness and solitude amid lively city streets toward a faint glimmer of hope: "Not alone?"',
         items: [
-          { num: '01', img: 'htori1.png', name: '虚無', sub: 'Emptiness' },
-          { num: '02', img: 'hitori2.png', name: '孤独', sub: 'Solitude' },
-          { num: '03', img: 'hitori3.png', name: 'ひとりぼっち。', sub: 'All Alone.' },
-          { num: '04', img: 'hitori4.png', name: 'ひとりじゃない？', sub: 'Not Alone?' },
-          { num: '05', img: 'hitori5.png', name: '楽しいはず...', sub: "It's Supposed to Be Fun..." }
+          { num: '01', img: 'htori1.png', nameJa: '虚無', nameEn: 'Emptiness', subJa: 'Emptiness', subEn: 'Emptiness' },
+          { num: '02', img: 'hitori2.png', nameJa: '孤独', nameEn: 'Solitude', subJa: 'Solitude', subEn: 'Solitude' },
+          { num: '03', img: 'hitori3.png', nameJa: 'ひとりぼっち。', nameEn: 'All Alone.', subJa: 'All Alone.', subEn: 'All Alone.' },
+          { num: '04', img: 'hitori4.png', nameJa: 'ひとりじゃない？', nameEn: 'Not Alone?', subJa: 'Not Alone?', subEn: 'Not Alone?' },
+          { num: '05', img: 'hitori5.png', nameJa: '楽しいはず...', nameEn: "It's Supposed to Be Fun...", subJa: "It's Supposed to Be Fun...", subEn: "It's Supposed to Be Fun..." }
         ]
       }
     };
 
-    function openSeries(seriesId) {
-      const data = SERIES_DATA[seriesId];
+    function renderModalContent() {
+      if (!currentSeriesId) return;
+      const data = SERIES_DATA[currentSeriesId];
       if (!data) return;
 
       document.getElementById('modalLabel').textContent = data.label;
-      document.getElementById('modalTitle').textContent = data.title;
-      document.getElementById('modalConcept').textContent = data.concept;
+      document.getElementById('modalTitle').textContent = currentLang === 'en' ? data.titleEn : data.titleJa;
+      document.getElementById('modalConcept').textContent = currentLang === 'en' ? data.conceptEn : data.conceptJa;
+
+      const flowHint = document.getElementById('modalFlowHint');
+      flowHint.innerHTML = currentLang === 'en'
+        ? flowHint.getAttribute('data-en')
+        : flowHint.getAttribute('data-ja');
+
+      const closeFooterBtn = document.getElementById('modalCloseFooterBtn');
+      closeFooterBtn.textContent = currentLang === 'en'
+        ? closeFooterBtn.getAttribute('data-en')
+        : closeFooterBtn.getAttribute('data-ja');
 
       const container = document.getElementById('modalSequence');
-      container.innerHTML = data.items.map(item => `
-        <div class="seq-item">
-          <div class="seq-thumb"><img src="${item.img}" alt="${item.name} ${item.sub}"></div>
-          <div class="seq-caption">
-            <span class="seq-num">${item.num}</span>
-            <div class="seq-text-group">
-              <span class="seq-name">${item.name}</span>
-              <span class="seq-sub">${item.sub}</span>
+      container.innerHTML = data.items.map(item => {
+        const name = currentLang === 'en' ? item.nameEn : item.nameJa;
+        const sub = currentLang === 'en' ? item.subEn : item.subJa;
+        return `
+          <div class="seq-item">
+            <div class="seq-thumb"><img src="${item.img}" alt="${name} ${sub}"></div>
+            <div class="seq-caption">
+              <span class="seq-num">${item.num}</span>
+              <div class="seq-text-group">
+                <span class="seq-name">${name}</span>
+                <span class="seq-sub">${sub}</span>
+              </div>
             </div>
           </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-ja][data-en]').forEach(el => {
+        const val = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-ja');
+        if (val !== null) {
+          el.innerHTML = val;
+        }
+      });
+
+      const toggleBtn = document.getElementById('langToggle');
+      if (toggleBtn) {
+        toggleBtn.textContent = lang === 'en' ? 'JP / EN' : 'EN / JP';
+      }
+
+      renderModalContent();
+    }
+
+    function toggleLang() {
+      applyLanguage(currentLang === 'ja' ? 'en' : 'ja');
+    }
+
+    function openSeries(seriesId) {
+      currentSeriesId = seriesId;
+      renderModalContent();
 
       const modal = document.getElementById('seriesModal');
       modal.classList.add('active');
